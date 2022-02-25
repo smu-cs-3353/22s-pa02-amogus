@@ -3,6 +3,6 @@
 
 
 template <typename itemtype>
-itemtype* shellSort(itemtype* arr, int size) {
+itemtype*& shellSort(itemtype*& arr, int size) {
     return arr;
 }

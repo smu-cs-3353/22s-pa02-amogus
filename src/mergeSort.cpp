@@ -3,6 +3,6 @@
 
 
 template <typename itemtype>
-itemtype* mergeSort(itemtype* arr, int size) {
+itemtype*& mergeSort(itemtype*& arr, int size) {
     return arr;
 }
