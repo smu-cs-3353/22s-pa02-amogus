@@ -3,6 +3,6 @@
 
 
 template <typename itemtype>
-itemtype* introSort(itemtype* arr, int size) {
+itemtype*& introSort(itemtype*& arr, int size) {
     return arr;
 }

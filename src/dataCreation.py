@@ -87,7 +87,7 @@ def randomArr(low, high, size, mode, duplicatesPercent, duplicateValueNum, dupli
 
 
 
-datasetName = "./data/small.txt"
+datasetName = "../data/small.txt"
 delim = '\n'
 low = 0
 high = 10000

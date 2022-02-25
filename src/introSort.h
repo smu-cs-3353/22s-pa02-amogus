@@ -3,7 +3,7 @@
 
 
 template <typename itemtype>
-itemtype* introSort(itemtype* arr, int size);
+itemtype*& introSort(itemtype*& arr, int size);
 
 
 #endif //INC_22S_PA02_SUSSYBAKA_INTROSORT_H

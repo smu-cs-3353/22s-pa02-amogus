@@ -3,6 +3,6 @@
 
 
 template <typename itemtype>
-itemtype* randomizedQuickSort(itemtype* arr, int size) {
+itemtype*& randomizedQuickSort(itemtype*& arr, int size) {
     return arr;
 }
