@@ -23,6 +23,9 @@ itemtype* mergeSort(itemtype* arr, int size) {
     // Merge the two halves of the array
 
 
+    // Create a new array to store the contents
+    itemtype* newArr = new itemtype[size];
+
     // Iterators for each sub array
     int i = 0;
     int j = 0;
@@ -35,29 +38,29 @@ itemtype* mergeSort(itemtype* arr, int size) {
         // If the end of the first array has been reached, add the
         // value from the second array
         if (i == split) {
-            arr[iter] = arr2[j];
+            newArr[iter] = arr2[j];
             j++;
         }
 
         // If the end of the second array has been reached, add the
         // value from the first array
         else if (j == size2) {
-            arr[iter] = arr1[i];
+            newArr[iter] = arr1[i];
             i++;
         }
 
         // If the value in the first array is greater than the value
         // in the second, store the value in the first array
         else if (arr1[i] > arr2[j]) {
-            arr[iter] = arr1[i];
-            i++;
+            newArr[iter] = arr2[j];
+            j++;
         }
 
         // If the value in the second array is greater than the value
         // in the first, store the value in the second array
         else if (arr2[j] > arr1[i]) {
-            arr[iter] = arr2[j];
-            j++;
+            newArr[iter] = arr1[i];
+            i++;
         }
 
         // Increase the iterator count
@@ -65,5 +68,5 @@ itemtype* mergeSort(itemtype* arr, int size) {
     }
 
 
-    return arr;
+    return newArr;
 }
