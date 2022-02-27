@@ -6,8 +6,6 @@
 #include <time.h>
 #include <algorithm>
 
-#include <iostream>
-
 template <typename itemtype>
 itemtype* randomizedQuickSort(itemtype* arr, int size);
 
