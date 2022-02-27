@@ -11,29 +11,41 @@
 template <typename itemtype>
 int partition(itemtype*& arr, int low, int high) {
 
+    // Random Pivot located at Low Position,
+    // Starting Incrementers (Opposite Sides).
+    int randPiv = arr[low];
+    int i = low - 1, j = high + 1;
+
+    while (true) {
+
+        // Leftmost Element >= Pivot.
+        do {
+            i++;
+        } while (arr[i] < randPiv);
+
+        // Rightmost Element <= Pivot.
+        do {
+            j--;
+        } while (arr[j] > randPiv);
+
+        // Pointers Meet.
+        if (i >= j) return j;
+        std::swap(arr[i], arr[j]);
+
+    }
+
+}
+
+template <typename itemtype>
+int randPartition(itemtype*& arr, int low, int high) {
+
     // Random number between low and high (Pivot Gen).
     srand(time(NULL));
     int random = low + rand() % (high - low);
 
-    // Swap with low for Hoare's Partitioning.
+    // Swap with low for Hoare's Partitioning. Return.
     std::swap(arr[random], arr[low]);
-    int randPiv = arr[low];
-
-    // Incrementer i
-    int i = (low - 1);
-
-    // Incrementer j, complete partition
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] < randPiv) {
-            i++;
-            std::swap(arr[i], arr[j]);
-        }
-    }
-
-    // Note i + 1 is Pivot Location
-    std::swap(arr[i + 1], arr[high]);
-
-    return (i + 1);
+    return partition(arr, low, high);
 
 }
 
@@ -44,8 +56,8 @@ void quickSort(itemtype*& arr, int low, int high) {
     // Else, Base Case.
     if (low < high) {
 
-        // Partition Index.
-        int pi = partition(arr, low, high);
+        // Partitioning Index.
+        int pi = randPartition(arr, low, high);
 
         // Quicksort on elements greater than pivot
         // and those less than pivot. Recursive.
@@ -64,3 +76,20 @@ itemtype* randomizedQuickSort(itemtype* arr, int size) {
     return arr;
 
 }
+
+//    // Lomuto's Partitioning Implementation.
+//    // Incrementer i
+//    int i = (low - 1);
+//
+//    // Incrementer j, complete partition
+//    for (int j = low; j <= high - 1; j++) {
+//        if (arr[j] < randPiv) {
+//            i++;
+//            std::swap(arr[i], arr[j]);
+//        }
+//    }
+//
+//    // Note i + 1 is Pivot Location
+//    std::swap(arr[i + 1], arr[high]);
+//
+//    return (i + 1);
