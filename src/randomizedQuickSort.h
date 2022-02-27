@@ -6,7 +6,9 @@
 #include <time.h>
 #include <algorithm>
 
+#include <iostream>
+
 template <typename itemtype>
-itemtype*& randomizedQuickSort(itemtype*& arr, int size);
+itemtype* randomizedQuickSort(itemtype* arr, int size);
 
 #endif //INC_22S_PA02_AMOGUS_RANDOMIZEDQUICKSORT_H

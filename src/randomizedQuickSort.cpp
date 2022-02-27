@@ -6,8 +6,11 @@ template <typename itemtype>
 int partition(itemtype*& arr, int low, int high) {
 
     // Random number between low and high (Pivot Gen)
-    srand(time(NULL));
-    int randPiv = rand() % (high - low);
+//    srand(time(NULL));
+//    int randPiv = low + rand() % (high - low);
+//    std::swap(arr[randPiv], arr[high]);
+
+    int randPiv = arr[high];
 
     // Incrementer i
     int i = (low - 1);
@@ -22,6 +25,7 @@ int partition(itemtype*& arr, int low, int high) {
 
     // Note i + 1 is Pivot Location
     std::swap(arr[i + 1], arr[high]);
+
     return (i + 1);
 
 }
@@ -47,7 +51,7 @@ void quickSort(itemtype*& arr, int low, int high) {
 
 // Simply calls Quicksort function and returns sorted array
 template <typename itemtype>
-itemtype*& randomizedQuickSort(itemtype*& arr, int size) {
+itemtype* randomizedQuickSort(itemtype* arr, int size) {
 
     quickSort(arr, 0, size - 1);
     return arr;
