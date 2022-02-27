@@ -90,13 +90,13 @@ def randomArr(low, high, size, mode, duplicatesPercent, duplicateValueNum, dupli
 datasetName = "../data/small.txt"
 delim = '\n'
 low = 0
-high = 10000
+high = 10000000
 size = 10
 mode = "I"
-duplicatesPercent = 0.20
-duplicateValueNum = 0
-duplicateValueStr = "abc"
-sortPercent = 0.50
+duplicatesPercent = 0.00
+duplicateValueNum = 420
+duplicateValueStr = "AmogUS"
+sortPercent = 0.00
 
 arr = randomArr(low, high, size, mode, duplicatesPercent, duplicateValueNum, duplicateValueStr, sortPercent)
 
