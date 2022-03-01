@@ -70,7 +70,7 @@ void quickSort(itemtype*& arr, int low, int high) {
 
 // Simply calls Quicksort function and returns sorted array.
 template <typename itemtype>
-itemtype* randomizedQuickSort(itemtype* arr, int size) {
+itemtype* randomizedQuickSort(itemtype*& arr, int size) {
 
     quickSort(arr, 0, size - 1);
     return arr;

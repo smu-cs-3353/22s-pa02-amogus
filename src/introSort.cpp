@@ -3,7 +3,7 @@
 
 
 template <typename itemtype>
-itemtype* introSort(itemtype* arr, int size) {
+itemtype* introSort(itemtype*& arr, int size) {
     // Get the depth limit
     int depthLimit = 2 * floor(log2(size));
 

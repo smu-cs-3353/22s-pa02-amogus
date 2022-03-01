@@ -1,13 +1,11 @@
-#ifndef INC_22S_PA02_SUSSYBAKA_DRFONTENOTSFAVORITESORTER_H
-#define INC_22S_PA02_SUSSYBAKA_DRFONTENOTSFAVORITESORTER_H
+#ifndef INC_22S_PA02_AMOGUS_DRFONTENOTSFAVORITESORTER_H
+#define INC_22S_PA02_AMOGUS_DRFONTENOTSFAVORITESORTER_H
 
 
-#include "insertionSort.h"
-#include "randomizedQuickSort.h"
-#include "mergeSort.h"
-#include "shellSort.h"
-#include "introSort.h"
-#include "timSort.h"
+#include "mergeSort.cpp"
+#include "shellSort.cpp"
+#include "introSort.cpp"
+#include "timSort.cpp"
 
 
 class DrFontenotsFavoriteSorter {
@@ -16,4 +14,4 @@ class DrFontenotsFavoriteSorter {
 
 
 
-#endif //INC_22S_PA02_SUSSYBAKA_DRFONTENOTSFAVORITESORTER_H
+#endif //INC_22S_PA02_AMOGUS_DRFONTENOTSFAVORITESORTER_H
