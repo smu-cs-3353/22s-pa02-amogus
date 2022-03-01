@@ -3,7 +3,7 @@
 
 
 template <typename itemtype>
-itemtype* insertionSort(itemtype*& arr, int size) {
+itemtype* insertionSort(itemtype* arr, int size) {
     // Iterate over all elements in the array
     for (int i = 1; i < size; i++) {
         // Hold the ith element
