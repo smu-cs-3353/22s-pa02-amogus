@@ -3,6 +3,6 @@
 
 
 template <typename itemtype>
-itemtype*& timSort(itemtype*& arr, int size) {
+itemtype* timSort(itemtype* arr, int size) {
     return arr;
 }

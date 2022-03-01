@@ -13,7 +13,7 @@ int partition(itemtype*& arr, int low, int high) {
 
     // Random Pivot located at Low Position,
     // Starting Incrementers (Opposite Sides).
-    int randPiv = arr[low];
+    itemtype randPiv = arr[low];
     int i = low - 1, j = high + 1;
 
     while (true) {

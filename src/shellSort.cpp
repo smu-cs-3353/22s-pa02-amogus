@@ -16,7 +16,7 @@ itemtype* shellSort(itemtype* arr, int size) {
         for (int i = gap; i < size; i += 1) {
 
             // Create Gap.
-            int temp = arr[i];
+            itemtype temp = arr[i];
 
             // Shift Element Into Gap.
             int j;

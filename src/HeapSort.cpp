@@ -10,7 +10,7 @@ void heapify(itemtype*& arr, int size, int nodeNum) {
     // Get the largest element in the subtree and
     // swap it if needed
     if (arr[node1] > arr[nodeNum] && arr[node1] > arr[node2] && node1 < size) {
-        int temp = arr[nodeNum];
+        itemtype temp = arr[nodeNum];
         arr[nodeNum] = arr[node1];
         arr[node1] = temp;
 
@@ -18,7 +18,7 @@ void heapify(itemtype*& arr, int size, int nodeNum) {
         heapify(arr, size, node1);
     }
     else if (arr[node2] > arr[nodeNum] && arr[node2] > arr[node1] && node2 < size) {
-        int temp = arr[nodeNum];
+        itemtype temp = arr[nodeNum];
         arr[nodeNum] = arr[node2];
         arr[node2] = temp;
 
@@ -42,7 +42,7 @@ itemtype* heapSort(itemtype* arr, int size) {
     // Sort the heap
     for (int i = size-1; i > 0; i--) {
         // Swap the root with the ith node
-        int root = arr[0];
+        itemtype root = arr[0];
         arr[0] = arr[i];
         arr[i] = root;
 
