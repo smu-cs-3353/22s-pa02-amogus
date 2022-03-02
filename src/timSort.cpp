@@ -44,8 +44,8 @@ itemtype* subMerge(itemtype* arr, int floor, int leftCeil, int rightCeil) {
     // Create the sub-arrays with sizes.
     int leftLen = leftCeil - floor + 1;
     int rightLen = rightCeil - leftCeil;
-    itemtype leftSub[leftLen];
-    itemtype rightSub[rightLen];
+    itemtype* leftSub = new itemtype[leftLen];
+    itemtype* rightSub = new itemtype[rightLen];
 
     // Copy elements from original array.
     for (int i = 0; i < leftLen; i++)
@@ -92,6 +92,9 @@ itemtype* subMerge(itemtype* arr, int floor, int leftCeil, int rightCeil) {
         k++;
         j++;
     }
+
+    delete[] leftSub;
+    delete[] rightSub;
 
     return arr;
 
