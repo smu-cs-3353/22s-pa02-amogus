@@ -39,7 +39,7 @@ itemtype* subInsertionSort(itemtype* arr, int floor, int ceiling) {
 // we only split one time (since, on higher levels, the left array will be fully
 // sorted already). Therefore, this is not a true MergeSort method, just Merge.
 template <typename itemtype>
-itemtype* subMergeSort(itemtype* arr, int floor, int leftCeil, int rightCeil) {
+itemtype* subMerge(itemtype* arr, int floor, int leftCeil, int rightCeil) {
 
     // Create the sub-arrays with sizes.
     int leftLen = leftCeil - floor + 1;
@@ -133,7 +133,7 @@ itemtype* timSort(itemtype* arr, int size) {
             // Compute Merge on Section. Note the actual merge is
             // between (0 - leftCeil), (leftCeil + 1 - rightCeil).
             if (leftCeil < rightCeil) {
-                subMergeSort(arr, floor, leftCeil, rightCeil);
+                subMerge(arr, floor, leftCeil, rightCeil);
             }
         }
     }
