@@ -23,12 +23,12 @@
 
 # General Project Information
 
-**Title:** Project 1 - [The Art Gallery](https://docs.google.com/document/d/1NCInL-sFE2GrlSIrjY5igatf9WIooObasxVhnnvV6Iw/edit)</br>
+**Title:** Project 2 - [Sorting](https://docs.google.com/document/d/1cZ7_xIKXQ3hLdtmt6OQCu8hcBoo2gixZcKfjooTjOSg/edit)</br>
 **Department:** Computer Science</br>
 **Professor:** Dr. Fontenot</br>
 
 **Names:** Gabriel Mongaras and Trevor Dohm</br>
-**Date:** 2 / 14 / 2022</br>
+**Date:** 3 / 11 / 2022</br>
 
 **Course:** Fundamentals of Algorithms</br>
 **Section:** CS 3353-001</br>
@@ -37,7 +37,7 @@
 
 ## The Problem
 
-In this project, we aim to use three different algorithms in order to find the most valuable orientation of pictures on a wall, and to analyze differences between said algorithms to further our understanding of these concepts.
+In this project, we aim to implement six different algorithms, empirically verify their respective upper bounds, and gather additional performance data using a number of customized datasets and timing information provided by built-in libraries.
 
 ## The Algorithms
 
