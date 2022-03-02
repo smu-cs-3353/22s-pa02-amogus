@@ -24,14 +24,14 @@ int main(int argc, char* argv[]) {
     std::string outfileName = "./output/outfile.csv";
 
     // Create the class to run the algorithms
-    DrFontenotsFavoriteSorter sorter(fileNames, outfileName);
+//    DrFontenotsFavoriteSorter sorter(fileNames, outfileName);
 
     // Run the sorter
-    sorter.run();
+//    sorter.run();
 
-    int* arr = new int[5]{3, 7, 1, 9, 8};
-    arr = introSort(arr, 5);
-    std::cout << arr[0] << arr[1] << arr[2] << arr[3] << arr[4] << std::endl;
+    int* arr = new int[9]{3, 7, 6, 1, 9, 8, 2, 4, 5};
+    arr = introSort(arr, 8);
+    std::cout << arr[0] << arr[1] << arr[2] << arr[3] << arr[4] << arr[5] << arr[6] << arr[7] << std::endl;
 
     return 0;
 }

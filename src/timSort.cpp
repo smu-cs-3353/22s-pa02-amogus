@@ -1,5 +1,5 @@
 #include "timSort.h"
-const int RUN = 64;
+const int RUN = 64; // Change as needed (Power of 2).
 
 // Modified Insertion Sort to work on a portion of the array. Similar,
 // but not exactly the same as the InsertionSort in the other file.
@@ -22,6 +22,7 @@ itemtype* subInsertionSort(itemtype* arr, int floor, int ceiling) {
 
             // Decrease j by 1.
             j--;
+
         }
 
         // Move the ith element to the jth position.
@@ -39,66 +40,60 @@ itemtype* subInsertionSort(itemtype* arr, int floor, int ceiling) {
 template <typename itemtype>
 itemtype* subMergeSort(itemtype* arr, int floor, int leftCeil, int rightCeil) {
 
+    // Create the sub-arrays with sizes.
     int leftLen = leftCeil - floor + 1;
     int rightLen = rightCeil - leftCeil;
+    itemtype leftSub[leftLen];
+    itemtype rightSub[rightLen];
 
+    // Copy elements from original array.
+    for (int i = 0; i < leftLen; i++)
+        leftSub[i] = arr[floor + i];
+    for (int i = 0; i < rightLen; i++)
+        rightSub[i] = arr[leftCeil + 1 + i];
 
-    // Sort each half of the array
-    itemtype* arr1 = mergeSort(arr, split);
-    itemtype* arr2 = mergeSort(arr+split, size2);
-
-
-
-
-    // Merge the two halves of the array
-
-
-    // Create a new array to store the contents
-    itemtype* newArr = new itemtype[size];
-
-    // Iterators for each sub array
+    // Iterators.
     int i = 0;
     int j = 0;
+    int k = floor;
 
-    // Iterator for main array
-    int iter = 0;
+    // While both arrays haven't been exceeded.
+    // Note we can't use exactly the same code
+    // because we are working within an array.
+    while (i < leftLen && j < rightLen) {
 
-    // Iterate over all values in each subarray
-    while (iter < size) {
-        // If the end of the first array has been reached, add the
-        // value from the second array
-        if (i == split) {
-            newArr[iter] = arr2[j];
-            j++;
-        }
-
-            // If the end of the second array has been reached, add the
-            // value from the first array
-        else if (j == size2) {
-            newArr[iter] = arr1[i];
+        // Same (Similar) From MergeSort, but
+        // we work with the original array
+        // instead of a newly created one.
+        if (leftSub[i] <= rightSub[j]) {
+            arr[k] = leftSub[i];
             i++;
         }
 
-            // If the value in the first array is greater than the value
-            // in the second, store the value in the first array
-        else if (arr1[i] > arr2[j]) {
-            newArr[iter] = arr2[j];
+        else {
+            arr[k] = rightSub[j];
             j++;
         }
 
-            // If the value in the second array is greater than the value
-            // in the first, store the value in the second array
-        else if (arr2[j] > arr1[i]) {
-            newArr[iter] = arr1[i];
-            i++;
-        }
+        k++;
 
-        // Increase the iterator count
-        iter++;
     }
 
+    // Copy Remaining Elements of Left or Right.
+    while (i < leftLen) {
+        arr[k] = leftSub[i];
+        k++;
+        i++;
+    }
 
-    return newArr;
+    while (j < rightLen) {
+        arr[k] = rightSub[j];
+        k++;
+        j++;
+    }
+
+    return arr;
+
 }
 
 // This algoworithm is weally compwex so wet me expwain it! ^w^
@@ -141,4 +136,7 @@ itemtype* timSort(itemtype* arr, int size) {
             }
         }
     }
+
+    return arr;
+
 }
