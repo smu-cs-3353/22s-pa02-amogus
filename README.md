@@ -4,9 +4,12 @@
 - [Project Description](#project-description)
   - The Problem
   - The Algorithms
-    - Brute Force Algorithm
-    - High-Value Algorithm
-    - Custom Algorithm
+    - Insertion Sort
+    - Randomized Quicksort
+    - Merge Sort
+    - Shellsort
+    - Introsort
+    - Timsort
  - [Installation, Configuration, Execution](#installation-configuration-execution)
    - Project Installation
    - Project Configuration
@@ -41,17 +44,17 @@ In this project, we aim to implement six different algorithms, empirically verif
 
 ## The Algorithms
 
-### Brute Force Algorithm
+### Insertion Sort
 
 The <strong>Brute Force Algorithm</strong> finds all possible orientations of pictures on the wall. In our implementation, we optimize the algorithm to find only
 the combinations that will fit on the given wall. This algorithm is quite slow for large datasets but works well for small datasets, which is a behavior that will be discussed in later sections. Since the 
 algorithm looks at all possible combinations, it will always find the highest value arrangement of pictures on the wall.
 
-### High-Value Algorithm
+### Randomized Quicksort
 
 The <strong>High-Value Algorithm</strong> fetches the highest value pictures in the dataset until the current picture width total reaches the wall width. This algorithm is very fast, but it is likely to return a suboptimal arrangement of pictures.
 
-### Custom Algorithm
+### Merge Sort
 
 The <strong>Custom Algorithm</strong> we created is similar to the <strong>High-Value Algorithm</strong>, but instead of picking the highest
 value image, we pick the lowest ranked image. The rank of each image can be obtained using the following formula:
@@ -63,6 +66,18 @@ value image, we pick the lowest ranked image. The rank of each image can be obta
 In this function, we divide the square of the image width by the product of the wall width and the picture value. The formula simply
 gives pictures with a large width and small value a higher rank while giving pictures with a small width and large value a lower rank, causing the latter to be chosen more often. This algorithm takes the same amount of time as the <strong>High-Value Algorithm</strong>, meaning
 it is very fast, and normally generates better, or closer-to-optimal, results than the <strong>High-Value Algorithm</strong>, though not as good as the <strong>Brute Force Algorithm</strong>.
+
+### Shellsort
+
+Write Here.
+
+### Introsort
+
+Write Here.
+
+### Timsort
+
+Write Here.
 
 # Installation, Configuration, Execution
 
