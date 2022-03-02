@@ -35,8 +35,9 @@ itemtype* subInsertionSort(itemtype* arr, int floor, int ceiling) {
 }
 
 // Modified Merge to work on a portion of the array. Note: This Merge follows
-// a similar method to the Merging in MergeSort, but I can't call that because
-// it operates on the full-sized array. Therefore, we have this instead.
+// a similar method to the Merging in MergeSort, but we don't call that because
+// we only split one time (since, on higher levels, the left array will be fully
+// sorted already). Therefore, this is not a true MergeSort method, just Merge.
 template <typename itemtype>
 itemtype* subMergeSort(itemtype* arr, int floor, int leftCeil, int rightCeil) {
 
