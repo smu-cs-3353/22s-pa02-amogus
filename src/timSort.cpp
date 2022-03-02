@@ -5,39 +5,43 @@ const int RUN = 64;
 // but not exactly the same as the InsertionSort in the other file.
 template <typename itemtype>
 itemtype* subInsertionSort(itemtype* arr, int floor, int ceiling) {
-    // Iterate over all elements in the array
+
+    // Iterate over all elements in the array.
     for (int i = floor + 1; i <= ceiling; i++) {
-        // Hold the ith element
+
+        // Hold the ith element.
         itemtype element = arr[i];
 
         // Iterate to the beginning of the array or until
-        // the ith element is less than the jth element
+        // the ith element is less than the jth element.
         int j = i-1;
         while (element < arr[j] && j >= floor) {
-            // Move the element up one value
+
+            // Move the element up one value.
             arr[j+1] = arr[j];
 
-            // Decrease j by 1
+            // Decrease j by 1.
             j--;
         }
 
-        // Move the ith element to the jth position
+        // Move the ith element to the jth position.
         arr[j+1] = element;
+
     }
 
     return arr;
+
 }
 
+// Modified Merge to work on a portion of the array. Note: This Merge follows
+// a similar method to the Merging in MergeSort, but I can't call that because
+// it operates on the full-sized array. Therefore, we have this instead.
 template <typename itemtype>
-itemtype* subMergeSort(itemtype* arr, int size) {
-    // If the size of the array is 1, return the array itself
-    if (size == 1) {
-        return arr;
-    }
+itemtype* subMergeSort(itemtype* arr, int floor, int leftCeil, int rightCeil) {
 
-    // get the value to split the array at
-    int split = int(size/2);
-    int size2 = size-split;
+    int leftLen = leftCeil - floor + 1;
+    int rightLen = rightCeil - leftCeil;
+
 
     // Sort each half of the array
     itemtype* arr1 = mergeSort(arr, split);
