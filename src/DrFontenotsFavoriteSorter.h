@@ -6,6 +6,7 @@
 #include "shellSort.cpp"
 #include "introSort.cpp"
 #include "timSort.cpp"
+#include "randomizedQuickSort.cpp"
 #include <vector>
 #include <string>
 #include <fstream>

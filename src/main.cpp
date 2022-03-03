@@ -29,9 +29,13 @@ int main(int argc, char* argv[]) {
     // Run the sorter
     sorter.run();
 
-    //int* arr = new int[9]{3, 7, 6, 1, 9, 8, 2, 4, 5};
-    //arr = mergeSort(arr, 8);
-    //std::cout << arr[0] << arr[1] << arr[2] << arr[3] << arr[4] << arr[5] << arr[6] << arr[7] << std::endl;
+//    int size = 21;
+//    int* arr = new int[size]{3, 7, 6, 1, 9, 8, 2, 4, 5, 50, 32, 10, 64, 8, 99, 1000, 32, 84, 76, 20, 21};
+//    arr = introSort(arr, size);
+//    for (int i = 0; i < size; i++) {
+//        std::cout << arr[i] << " ";
+//    }
+//    std::cout << std::endl;
 
     return 0;
 }
