@@ -12,7 +12,7 @@ itemtype* insertionSort(itemtype* arr, int size) {
         // Iterate to the beginning of the array or until
         // the ith element is less than the jth element
         int j = i-1;
-        while (element < arr[j] && j >= 0) {
+        while (element <= arr[j] && j > 0) {
             // Move the element up one value
             arr[j+1] = arr[j];
 
