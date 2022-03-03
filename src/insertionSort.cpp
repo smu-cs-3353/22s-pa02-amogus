@@ -21,7 +21,13 @@ itemtype* insertionSort(itemtype* arr, int size) {
         }
 
         // Move the ith element to the jth position
-        arr[j+1] = element;
+        if (element < arr[0]) {
+            arr[1] = arr[0];
+            arr[0] = element;
+        }
+        else {
+            arr[j+1] = element;
+        }
     }
 
     return arr;

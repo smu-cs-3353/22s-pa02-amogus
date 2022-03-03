@@ -4,35 +4,33 @@
 
 template <typename itemtype>
 void heapify(itemtype*& arr, int size, int nodeNum) {
+    int largest = nodeNum;
     int node1 = 2*nodeNum + 1;
     int node2 = 2*nodeNum + 2;
 
     // Get the largest element in the subtree and
     // swap it if needed
-    if (arr[node1] > arr[nodeNum] && arr[node1] > arr[node2] && node1 < size) {
-        itemtype temp = arr[nodeNum];
-        arr[nodeNum] = arr[node1];
-        arr[node1] = temp;
-
-        // Heapify the largest node (in the location it was at)
-        heapify(arr, size, node1);
+    if (node1 < size && arr[node1] > arr[largest]) {
+        largest = node1;
     }
-    else if (arr[node2] > arr[nodeNum] && arr[node2] > arr[node1] && node2 < size) {
-        itemtype temp = arr[nodeNum];
-        arr[nodeNum] = arr[node2];
-        arr[node2] = temp;
+    if (node2 < size && arr[node2] > arr[largest]) {
+        largest = node2;
+    }
+    if (largest != nodeNum) {
+        itemtype root = arr[largest];
+        arr[largest] = arr[nodeNum];
+        arr[nodeNum] = root;
 
-        // Heapify the largest node (in the location it was at)
-        heapify(arr, size, node2);
+        heapify(arr, size, largest);
     }
 }
 
 
 
 template <typename itemtype>
-itemtype* heapSort(itemtype* arr, int size) {
+itemtype*& heapSort(itemtype*& arr, int size) {
     // Find the height of the tree
-    int height = ceil(log2(size-1));
+    int height = size/2;
 
     // Build the max heap
     for (int i = height-1; i >= 0; i--) {
