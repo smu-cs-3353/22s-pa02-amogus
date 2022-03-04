@@ -4,5 +4,4 @@
 template <typename itemtype>
 itemtype* insertionSort(itemtype* arr, int size);
 
-
 #endif //INC_22S_PA02_AMOGUS_INSERTIONSORT_H
