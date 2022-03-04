@@ -28,6 +28,7 @@ itemtype* insertionSort(itemtype* arr, int size) {
 
             // Decrement j.
             j--;
+
         }
 
         // Move the ith element to the jth position.

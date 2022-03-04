@@ -1,22 +1,26 @@
 #include "introSort.h"
 
-
+// Insertion Sort, see the code in insertionSort.cpp.
 template <typename itemtype>
 itemtype*& insertionSortHelper(itemtype*& arr, int size) {
-    // Iterate over all elements in the array
+
+    // Iterate over all elements in the array.
     for (int i = 1; i < size; i++) {
-        // Hold the ith element
+
+        // Hold the ith element.
         itemtype element = arr[i];
 
         // Iterate to the beginning of the array or until
-        // the ith element is less than the jth element
+        // the ith element is less than the jth element.
         int j = i-1;
         while (element <= arr[j] && j > 0) {
-            // Move the element up one value
+
+            // Move the element up one value.
             arr[j+1] = arr[j];
 
-            // Decrease j by 1
+            // Decrement j.
             j--;
+
         }
 
         // Move the ith element to the jth position
@@ -24,20 +28,23 @@ itemtype*& insertionSortHelper(itemtype*& arr, int size) {
             arr[1] = arr[0];
             arr[0] = element;
         }
+
         else {
             arr[j+1] = element;
         }
     }
 
     return arr;
+
 }
 
-
+// Howoare's Partitioning Scheme. See Quicksort.
 template <typename itemtype>
 int partitionIntro(itemtype*& arr, int size, itemtype pivot) {
     int i = 1, j = size-2;
 
     while (true) {
+
         // Leftmost Element >= Pivot.
         do {
             i++;
@@ -54,110 +61,117 @@ int partitionIntro(itemtype*& arr, int size, itemtype pivot) {
     }
 }
 
-
-
-
+// Simply get Median of Three, Swap Values.
 template <typename itemtype>
 itemtype medianOfThree(itemtype*& arr, int size) {
-    // Get the indices
+
+    // Get the indices.
     int a = 0;
     int b = int(size/2);
     int c = size-1;
 
-    // Used to swap values
+    // Used to swap values.
     itemtype temp;
 
-    // If the first value is the greatest
+    // If the first value is the greatest.
     if (arr[a] > arr[b] && arr[a] > arr[c]) {
-        // move the first value to the end of the array
+
+        // Move the first value to the end of the array.
         temp = arr[c];
         arr[c] = arr[a];
 
-        // If the second value is greater than temp, move
-        // temp to the beginning
+        // If the second value is greater than temp,
+        // move temp to the beginning.
         if (arr[b] > temp) {
             arr[a] = temp;
         }
 
         // If the second value is less than temp, move
-        // the temp value to the second element
+        // the temp value to the second element.
         else {
             arr[a] = arr[b];
             arr[b] = temp;
         }
     }
 
-    // If the second value is the greatest
+    // If the second value is the greatest.
     else if (arr[b] > arr[a] && arr[b] > arr[c]) {
-        // move the second value to the end of the array
+
+        // Move the second value to the end of the array.
         temp = arr[c];
         arr[c] = arr[b];
 
-        // If the first value is greater than the temp, move
-        // the first to the second element and store temp in
-        // the first element
+        // If the first value is greater than the temp, move the
+        // first to the second element and store temp in the first element.
         if (arr[a] > temp) {
             arr[b] = arr[a];
             arr[a] = temp;
         }
-        // If the first value is less than the temp, move
-        // the temp value to the second index
+
+        // If the first value is less than the temp,
+        // move the temp value to the second index.
         else {
             arr[b] = temp;
         }
     }
 
-    // If the last value is the greatest
+    // If the last value is the greatest.
     else if (arr[c] > arr[a] && arr[c] > arr[b]) {
-        // If the first value is greater than the second, swap them
+
+        // If the first value is greater than the second, swap them.
         if (arr[a] > arr[b]) {
             std::swap(arr[a], arr[b]);
         }
     }
 
-    // Return the median pivot value
+    // Return the median pivot value.
     return arr[b];
+
 }
 
-
-
+// Main Handler of Introwosort! Since this is a hybrid aloworithm,
+// we switch between Insertion Sort, Heapsort, and Partitioning
+// of the Quicksort, where, instead of going through the entire
+// array, it recursively calls itself for each half. See below
+// for the specifics of when the algoworithms are called.
 template <typename itemtype>
 itemtype* sort(itemtype* arr, int size, int maxDepth) {
-    // If the size of the array is less than 16, use insertionSort
+
+    // If the size of the array is less than 16, use insertionSort.
     if (size <= 16) {
         insertionSortHelper(arr, size);
     }
 
-    // If the depth limit is 0, heap sort the array
+    // If the depth limit is 0, heap sort the array.
     else if (maxDepth == 0) {
         heapSort(arr, size);
     }
 
-    // If none of the conditions are met partition the array
-    // and intro sort it again
+    // If none of the conditions are met partition
+    // the array and intro sort it again.
     else {
-        // Get the pivot value
+
+        // Get the pivot value.
         itemtype pivot = medianOfThree(arr, size);
 
-        // Partition the array
+        // Partition the array.
         int middle = partitionIntro(arr, size, pivot);
 
-        // Sort the halves of the array
+        // Sort the halves of the array.
         sort(arr, middle, maxDepth - 1);
         sort(arr+middle, size-middle, maxDepth - 1);
     }
 
     return arr;
+
 }
 
-
-
-
+// Calls the sort and returns the sorted array.
 template <typename itemtype>
 itemtype* introSort(itemtype* arr, int size) {
-    // Get the depth limit
-    int maxDepth = 2 * floor(log2(size));
 
-    // Sort the array
+    // Get the depth limit, return.
+    int maxDepth = 2 * floor(log2(size));
     return sort(arr, size, maxDepth);
+
 }
