@@ -3,7 +3,6 @@
 - [General Project Information](#general-project-information) 
 - [Project Description](#project-description)
   - The Problem
-  - The Data Creation
   - The Algorithms
     - Insertion Sort
     - Randomized Quicksort
@@ -15,8 +14,7 @@
    - Project Installation
    - Project Configuration
    - Project Execution
-     - Sample Input
-     - Sample Output
+     - Data Creation
 - [Algorithm Analysis](#algorithm-analysis)
   - Setup
   - Results By Value
@@ -88,11 +86,26 @@ Best: Ω(nlgn)</br>
 
 ### Shellsort
 
-Write Here.
+This sorting algorithm is a generalized version, or variation, of Insertion Sort, which successively reduces the interval, or gap, between elements to be sorted. There are many different ways / sequences to do this, but we will be using Shell's Original Sequence, which is similar to the splitting in merge sort. 
+Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
+
+#### Shellsort Time Complexity
+
+Worst: O(n(lgn)^2) </br>
+Average: Θ(n(lgn)^2) </br>
+Best: Ω(nlgn)	</br>
 
 ### Introsort
 
-Write Here.
+This sorting algorithm is a hybrid sorting algorithm, consisting of Insertion Sort, Heapsort, and Partitioning from Quicksort, where, instead of going through the entire array, the algorithm recursively calls itself for each half. 
+When the size is 16 of less, Insertion Sort is called because, as discussed above, Insertion Sort works well with small sized arrays. When the depth, which is defined as two times the log of the size of the array, is zero, Heapsort is called. Otherwise, Quicksort is called.
+Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
+
+#### Introsort Time Complexity
+
+Worst: O(nlgn) </br>
+Average: Θ(nlgn) </br>
+Best: Ω(nlgn)	</br>
 
 ### Timsort
 
