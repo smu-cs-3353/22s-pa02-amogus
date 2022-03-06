@@ -3,6 +3,7 @@
 - [General Project Information](#general-project-information) 
 - [Project Description](#project-description)
   - The Problem
+  - The Data Creation
   - The Algorithms
     - Insertion Sort
     - Randomized Quicksort
@@ -42,13 +43,23 @@
 
 In this project, we aim to implement six different algorithms, empirically verify their respective upper bounds, and gather additional performance data using a number of customized datasets and timing information provided by built-in libraries.
 
+## The Data Creation
+
+Data Creation Here.
+
 ## The Algorithms
 
 ### Insertion Sort
 
-The <strong>Brute Force Algorithm</strong> finds all possible orientations of pictures on the wall. In our implementation, we optimize the algorithm to find only
-the combinations that will fit on the given wall. This algorithm is quite slow for large datasets but works well for small datasets, which is a behavior that will be discussed in later sections. Since the 
-algorithm looks at all possible combinations, it will always find the highest value arrangement of pictures on the wall.
+This sorting algorithm iterates through the entire array, splitting it up into a sorted part and an unsorted part. As the iterator increments, 
+the current element that the iterator is pointing at gets compared with the element before it. This continues until that element is greater than the one that comes before it.
+That way, each element gets sorted into its correct position one-at-a-time. This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted.
+
+#### Insertion Sort Time Complexity
+
+Worst: O(n^2) </br>
+Average: Θ(n^2) </br>
+Best: Ω(n)</br>
 
 ### Randomized Quicksort
 
