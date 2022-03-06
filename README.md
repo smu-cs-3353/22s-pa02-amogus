@@ -53,7 +53,8 @@ Data Creation Here.
 
 This sorting algorithm iterates through the entire array, splitting it up into a sorted part and an unsorted part. As the iterator increments, 
 the current element that the iterator is pointing at gets compared with the element before it. This continues until that element is greater than the one that comes before it.
-That way, each element gets sorted into its correct position one-at-a-time. This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted.
+That way, each element gets sorted into its correct position one-at-a-time. This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted. 
+Note that Insertion Sort is used when the number of elements is small, or when the array is sorted / almost sorted. This will be discussed further later on.
 
 #### Insertion Sort Time Complexity
 
@@ -63,7 +64,16 @@ Best: Ω(n)</br>
 
 ### Randomized Quicksort
 
-The <strong>High-Value Algorithm</strong> fetches the highest value pictures in the dataset until the current picture width total reaches the wall width. This algorithm is very fast, but it is likely to return a suboptimal arrangement of pictures.
+This sorting algorithm chooses a random index in the array, known as the partition index, and places the indexed element at the lowest location of the array. Once this is done, 
+two incrementors are instantiated, one increments from bottom to top, and the other decrements from top to bottom. With that, swaps between i and j are performed 
+when the element at i is less than the pivot and the element at j is greater than the pivot. When the incrementors inevitably cross, j is returned as the partition index, which allows for the algorithm to recursively call itself. This continues until the array is sorted. 
+Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
+
+#### Randomized Quicksort Time Complexity
+
+Worst: O(n^2) </br>
+Average: Θ(nlgn) </br>
+Best: Ω(nlgn)</br>
 
 ### Merge Sort
 
