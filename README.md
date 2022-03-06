@@ -53,8 +53,8 @@ Data Creation Here.
 
 This sorting algorithm iterates through the entire array, splitting it up into a sorted part and an unsorted part. As the iterator increments, 
 the current element that the iterator is pointing at gets compared with the element before it. This continues until that element is greater than the one that comes before it.
-That way, each element gets sorted into its correct position one-at-a-time. This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted. 
-Note that Insertion Sort is used when the number of elements is small, or when the array is sorted / almost sorted. This will be discussed further later on.
+That way, each element gets sorted into its correct position one at a time. This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted. 
+Note that Insertion Sort is used when the number of elements is small, or when the array is sorted / almost sorted. This will be discussed further later on, during the portion on Introsort. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Insertion Sort Time Complexity
 
@@ -77,16 +77,14 @@ Best: Ω(nlgn)</br>
 
 ### Merge Sort
 
-The <strong>Custom Algorithm</strong> we created is similar to the <strong>High-Value Algorithm</strong>, but instead of picking the highest
-value image, we pick the lowest ranked image. The rank of each image can be obtained using the following formula:
+This sorting algorithm follows two major steps: The first, being the split step, where the array gets split into a number of subarrays, and the second, being the recombine step, where each of the halved arrays are merged using loops. 
+We note that each element is iterated over at each level, which is where the cost of the recombine step comes from, and how the merge occurs. Merge sort is a divide and conquer algorithm as discussed above. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
-<p align="center">
-<img src="https://render.githubusercontent.com/render/math?math=\color{white}\Large\frac{(Image \:\, Width)^2}{(Wall  \:\, Width) * (Image  \:\, Value)}"></br>
-</p>
+#### Merge Sort Time Complexity
 
-In this function, we divide the square of the image width by the product of the wall width and the picture value. The formula simply
-gives pictures with a large width and small value a higher rank while giving pictures with a small width and large value a lower rank, causing the latter to be chosen more often. This algorithm takes the same amount of time as the <strong>High-Value Algorithm</strong>, meaning
-it is very fast, and normally generates better, or closer-to-optimal, results than the <strong>High-Value Algorithm</strong>, though not as good as the <strong>Brute Force Algorithm</strong>.
+Worst: O(nlgn) </br>
+Average: Θ(nlgn) </br>
+Best: Ω(nlgn)</br>
 
 ### Shellsort
 
