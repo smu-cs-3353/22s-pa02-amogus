@@ -242,39 +242,89 @@ test-custom.txt:
 
 The first line in the file contains the value of the pictures on the wall, and the proceeding lines starting at line 2 represent information for each picture chosen to go on the wall. Each picture line is broken up as specified above.
 
+# Data Generation
+
+We will do this later.
+
 # Algorithm Analysis
 
-This section will examine how each of the three algorithms performs, and how they compare against each other.
+This section will examine how each of the six algorithms perform, and how they compare against each other.
 
 ## Analysis Setup
 
-To set up the analysis, we take 5 different sample sizes:
+To setup the analysis, we split the dataset into:
 
-- 10 Pictures
-- 15 Pictures
-- 50 Pictures
-- 100 Pictures
-- 1000 Pictures
+- A dataset of integers
+- A dataset of string
 
-Each sample of pictures is split up into 6 different parts where:
+For each dataset, we take 6 different sample sizes:
 
-- The maxWidth is 1000 x 2
-- The maxWidth is 2500 x 2
-- The maxWidth is 5000 x 2
+- 1,000 elements
+- 5,000 elements
+- 10,000 elements
+- 50,000 elements
+- 100,000 elements
+- 500,000 elements
 
-So, in total, there are 30 input sample files that will be used to test the algorithms. Each algorithm goes through each dataset for a total of 84 results. Brute Force takes too long in the final dataset with 1000 pictures, so it will not be analyzed on that input file.
+Each sample is split up into 5 different parts where:
 
-When doing analysis, we also looked at the time cost of each of the algorithms using two main methods:
+- There are no duplicates and the dataset is not sorted
+- There are no duplicates and the dataset is 100% sorted
+- There are no duplicates and the dataset is 60% sorted
+- There are 20% duplicates and the dataset is not sorted
+- There are 40% duplicates and the dataset is not sorted
 
-1. Using Time command in terminal. To use this command, first navigate to the cmake-build-debug folder, or wherever your executable is stored. When running the program, prepend the execution with "time." If done correctly, it will look something like this:
+So, in total, there are 60 input sample files that will be used to test the algorithms.
 
-```bash
-time ./22s-pa01-sussybaka [Input File Name] [-b]
-```
+When doing analysis, we looked at the time cost of each of the algorithms by using the Chrono library. This method is is much more accurate and precise than the timing command, which is why we included it within this project.
 
-This command will add some timing information to the bottom of the output, which allows for time cost analysis.
+## Results - Dataset Size Vs. Time To Sort
 
-2. Chrono Library. This is much more accurate and precise than the timing command, which is why we included it within this project. To run the project with Chrono, you must include the -timer flag when executing the program. The program will run like normal, but will include additional timing information during execution.
+Below are the graphs for the integer dataset:
+
+![Time To Sort By Algorithm (Integer) 1](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(Integer)%201.png)
+![Time To Sort By Algorithm (Integer) 2](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(Integer)%202.png)
+![Time To Sort By Algorithm (Integer) 3](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(Integer)%203.png)
+![Time To Sort By Algorithm (Integer) 4](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(Integer)%204.png)
+
+In each graph, the different lines represent the different algorithms:
+- Dark Blue is Insertion Sort
+- Orange is Randomized Quicksort
+- Grey is Merge Sort
+- Yellow is Shell Sort
+- Light Blue is Intro Sort
+- Green is Tim Sort
+
+Note: There are multiple graphs. The only difference among the graphs are the sorting algorithms show. For example, since the first graph only shows how insertion sort performs since the sorting time is so high, it is removed from the other graphs so the other algorithms can be visualized.
+
+The dataset size is on the x-axis and the time it takes the algorithm to sort the array is on the y-axis. Below are the graphs for the string dataset with the same format as the integer dataset:
+
+![Time To Sort By Algorithm (String) 1](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(String)%201.png)
+![Time To Sort By Algorithm (String) 1](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(String)%202.png)
+![Time To Sort By Algorithm (String) 1](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(String)%203.png)
+![Time To Sort By Algorithm (String) 1](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(String)%204.png)
+
+## Analysis - Dataset Size Vs. Time To Sort
+
+In both the string and integer datasets, the algorithm sorting speed stays consistent in the following order:
+1. Insertion Sort (the slowest)
+2. Randomized Quicksort
+3. Merge Sort
+4. Tim Sort
+5. Shell Sort
+6. Intro Sort (the fastest)
+
+So, clearly Insertion Sort is the slowest on large datasets and Intro Sort is the fastest on large datasets.
+
+## Results - Performance With Duplicates Vs. Performance Without Duplicates
+
+## Analysis - Performance With Duplicates Vs. Performance Without Duplicates
+
+## Results - Performance On Sorted Array Vs. Performance On Unsorted Array
+
+## Analysis - Performance On Sorted Array Vs. Performance On Unsorted Array
+
+## Analysis - Relating Our Results To The Published Upper Bounds
 
 ## Results By Value
 
