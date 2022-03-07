@@ -41,18 +41,13 @@
 
 In this project, we aim to implement six different algorithms, empirically verify their respective upper bounds, and gather additional performance data using a number of customized datasets and timing information provided by built-in libraries.
 
-## The Data Creation
-
-Data Creation Here.
-
 ## The Algorithms
 
 ### Insertion Sort
 
 This sorting algorithm iterates through the entire array, splitting it up into a sorted part and an unsorted part. As the iterator increments, 
 the current element that the iterator is pointing at gets compared with the element before it. This continues until that element is greater than the one that comes before it.
-That way, each element gets sorted into its correct position one at a time. This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted. 
-Note that Insertion Sort is used when the number of elements is small, or when the array is sorted / almost sorted. This will be discussed further later on, during the portion on Introsort. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
+That way, each element gets sorted into its correct position one at a time. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Insertion Sort Time Complexity
 
@@ -76,7 +71,7 @@ Best: Ω(nlgn)</br>
 ### Merge Sort
 
 This sorting algorithm follows two major steps: The first, being the split step, where the array gets split into a number of subarrays, and the second, being the recombine step, where each of the halved arrays are merged using loops. 
-We note that each element is iterated over at each level, which is where the cost of the recombine step comes from, and how the merge occurs. Merge sort is a divide and conquer algorithm as discussed above. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
+We note that each element is iterated over at each level, which is where the cost comes from, and how the merge occurs. Merge sort is a divide and conquer algorithm as discussed above. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Merge Sort Time Complexity
 
@@ -109,7 +104,15 @@ Best: Ω(nlgn)	</br>
 
 ### Timsort
 
-Write Here.
+This sorting algorithm is a hybrid sorting algorithm, consisting of Insertion Sort and Merging from Merge Sort. It should be noted that these two fundamental algorithms are modified for Timsort to work on portions of the array. 
+The algorithm splits the array up into 2^n segments known as "Run." Insertion Sort operates on each 2^n segment of the array, and then each segment is merged together incrementally using the modified merge discussed above.
+See code for a more detailed description of the functions and such. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
+
+#### Timsort Time Complexity
+
+Worst: O(nlgn) </br>
+Average: Θ(nlgn) </br>
+Best: Ω(n) </br>
 
 # Installation, Configuration, Execution
 
@@ -146,7 +149,7 @@ cmake -S [Project Directory Path] -B [cmake-build-debug path]
 If you are in the project directory (path ending in /22s-pa01-sussybaka), it will look something like this:
 
 ```bash
-cmake -S ../22s-pa01-sussybaka -B cmake-build-debug
+cmake -S ../22s-pa02-amogus -B cmake-build-debug
 ```
 
 4. You will see some messages about compiler information and configuration. You can check the cmake-build-debug folder to make sure it has been populated with the necessary files.
@@ -156,7 +159,7 @@ cmake -S ../22s-pa01-sussybaka -B cmake-build-debug
 cmake --build [cmake-build-debug path]
 ```
 
-If you are in the project directory (path ending in /22s-pa01-sussybaka), it will look something like this:
+If you are in the project directory (path ending in /22s-pa02-amogus), it will look something like this:
 
 ```bash
 cmake --build cmake-build-debug
@@ -169,78 +172,44 @@ Once finished with this process, the cmake-build-debug folder should have the ex
 The following command can be used to run the project: </br>
 
 ```bash
-./22s-pa01-sussybaka [Input File Name] [-b] [-timer]
+./22s-pa01-sussybaka
 ```
-
-Note that if you are using an IDE, the program arguments can be specified in the configuration settings.
-
-When the code executes, it reads in the specified file name and outputs three files, one for each algorithm, to the /output/ directory. To ensure to project runs successfully, make sure the specified input file name is correct in relation to the 22s-pa01-sussybaka project file, and the /output/ directory exists in the same directory as the 22s-pa01-sussybaka project file. If something were to go wrong, an error message stating the issue would be displayed.
-
-The -b flag is used to specify whether the Brute Force Algorithm should be used. If the -b flag is included, the Brute Force Algorithm runs. If the -b flag is not there, then the Brute Force Algorithm will not run.
-
-The -timer flag is used to specify whether the algorithms should be timed. If the -timer flag is included, the High Value Algorithm and the Custom Algorithm will be timed. If the -b flag is included, then the Brute Force Algorithm will also be timed. If the -timer flag is not included, then the program runs without timing the algorithms.
 
 ### Sample Input
 
 The following lines are an example of an input file:
 
 ```
-1024 768
-10
-1 2 541 1
-2 12 982 1
-3 18 452 1
-4 9 680 1
-5 4 123 1
-6 1 433 1
-7 26 496 1
-8 4 129 1
-9 6 927 1
-10 20 466 1
+7577008
+256589
+4753880
+854405
+5234934
+1625197
+2601786
+1260275
+2759580
+Contd...
 ```
 
-The first line specifies the wall length and height. </br>
-The second line specifies the number of pictures to choose from. </br>
-All proceeding lines starting at line 3 represent a picture where each line is broken up into the following parts:
-- The first number is the ID of the picture.
-- The second number is the value or price of the picture.
-- The third number is the width of the picture.
-- The fourth and final number is the height of the image.
+Where each line is another data point, or element, in the array.
 
-As discussed above, there are seven sample outputs already in the repository, two being in the input folder, and the other five being in the Algorithm Analysis folder. If desired, more sample inputs can be generated using the test.py script found in the src folder.
-This script simply generates a randomized input that can then be dragged into the input folder for usage. Just run the program and it will store the input file in the same directory.
+All the data used in analysis is already located in the repository, but more data may be created using the python script. See the section below on data creation to create your own data with its own specifications.
 
 ### Sample Output
 
-The project will output three different files. Each file is the output from one of the algorithms. The following is an example of test-bruteforce.txt,
-test-highvalue.txt, and test-custom.txt using the sample input from above: </br>
+The project has one output file which is formatted as such:. </br>
 
-test-bruteforce.txt:
-
-```
-46
-7 26 496 1
-10 20 466 1
-```
-
-test-highvalue.txt:
+outfile.csv
 
 ```
-46
-7 26 496 1
-10 20 466 1
+File Name,Size,Integer/String,Insertion,Random Quicksort,Merge,Shell,Intro,Tim
+./data/integer/1000/1000_0D_0S.txt,1000,integer,97,1707,93,7,16,21
+./data/integer/1000/1000_0D_100S.txt,1000,integer,1,2058,108,9,11,19
+Contd...
 ```
 
-test-custom.txt:
-
-```
-34
-5 4 123 1
-8 4 129 1
-7 26 496 1
-```
-
-The first line in the file contains the value of the pictures on the wall, and the proceeding lines starting at line 2 represent information for each picture chosen to go on the wall. Each picture line is broken up as specified above.
+An output file should already be located in the repository.
 
 # Data Generation
 
@@ -249,6 +218,13 @@ We will do this later.
 # Algorithm Analysis
 
 This section will examine how each of the six algorithms perform, and how they compare against each other.
+
+## Insertion Sort Analysis
+
+This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted. 
+Note that Insertion Sort is used when the number of elements is small, or when the array is sorted / almost sorted. This will be discussed further later on, during the portion on Introsort.
+
+
 
 ## Analysis Setup
 
