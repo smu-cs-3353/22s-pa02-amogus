@@ -14,6 +14,8 @@
    - Project Installation
    - Project Configuration
    - Project Execution
+     - Sample Input
+     - Sample Output
      - Data Creation
 - [Algorithm Analysis](#algorithm-analysis)
   - Setup
@@ -93,7 +95,7 @@ Best Case: Ω(nlgn)	</br>
 ### Introsort
 
 This sorting algorithm is a hybrid sorting algorithm, consisting of Insertion Sort, Heapsort, and Partitioning from Quicksort, where, instead of going through the entire array, the algorithm recursively calls itself for each half. 
-When the size is 16 of less, Insertion Sort is called because, as will be discussed, Insertion Sort works well with small-sized arrays. When the depth, which is defined as two times the log of the size of the array, is zero, Heapsort is called. Otherwise, Quicksort is called.
+When the size is 16 of less, Insertion Sort is called because, as will be discussed, Insertion Sort works well with small-sized arrays. When the depth, which is defined as two times the log of the size of the array, is zero, Heapsort is called. Otherwise, Quicksort is called. This is to maintain the quickest, or best time complexity, runtime at all times. 
 Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Introsort Time Complexity
@@ -146,7 +148,7 @@ Otherwise, a step-by-step procedure for doing so in the terminal can be found be
 cmake -S [Project Directory Path] -B [cmake-build-debug path]
 ```
 
-If you are in the project directory (path ending in /22s-pa01-sussybaka), it will look something like this:
+If you are in the project directory, it will look something like this:
 
 ```bash
 cmake -S ../22s-pa02-amogus -B cmake-build-debug
@@ -159,20 +161,20 @@ cmake -S ../22s-pa02-amogus -B cmake-build-debug
 cmake --build [cmake-build-debug path]
 ```
 
-If you are in the project directory (path ending in /22s-pa02-amogus), it will look something like this:
+If you are in the project directory, it will look something like this:
 
 ```bash
 cmake --build cmake-build-debug
 ```
 
-Once finished with this process, the cmake-build-debug folder should have the executable in it. Before you run the executable, make sure that you copy the input and output folders into the cmake-build-debug directory. Add whatever files you'd like into these folders, and you can run them from the command line as described below. Note that the given input folder has two sample inputs, and the Algorithm Analysis folder has a couple more.
+Once finished with this process, the cmake-build-debug folder should have the executable in it. Check to make sure the data folder and output folder have been pushed into the folder. If they haven't copy and paste them into the cmake-build-debug directory.
 
 ## Project Execution
 
 The following command can be used to run the project: </br>
 
 ```bash
-./22s-pa01-sussybaka
+./22s-pa02-amogus
 ```
 
 ### Sample Input
@@ -211,7 +213,7 @@ Contd...
 
 An output file should already be located in the repository.
 
-# Data Generation
+### Data Generation
 
 We will do this later.
 
