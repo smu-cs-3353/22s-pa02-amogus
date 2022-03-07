@@ -51,9 +51,9 @@ That way, each element gets sorted into its correct position one at a time. Furt
 
 #### Insertion Sort Time Complexity
 
-Worst: O(n^2) </br>
-Average: Θ(n^2) </br>
-Best: Ω(n)</br>
+Worst Case: O(n^2) </br>
+Average Case: Θ(n^2) </br>
+Best Case: Ω(n)</br>
 
 ### Randomized Quicksort
 
@@ -64,9 +64,9 @@ Further analysis of this algorithm can be found in the [analysis section](#algor
 
 #### Randomized Quicksort Time Complexity
 
-Worst: O(n^2) </br>
-Average: Θ(nlgn) </br>
-Best: Ω(nlgn)</br>
+Worst Case: O(n^2) </br>
+Average Case: Θ(nlgn) </br>
+Best Case: Ω(nlgn)</br>
 
 ### Merge Sort
 
@@ -75,32 +75,32 @@ We note that each element is iterated over at each level, which is where the cos
 
 #### Merge Sort Time Complexity
 
-Worst: O(nlgn) </br>
-Average: Θ(nlgn) </br>
-Best: Ω(nlgn)</br>
+Worst Case: O(nlgn) </br>
+Average Case: Θ(nlgn) </br>
+Best Case: Ω(nlgn)</br>
 
 ### Shellsort
 
-This sorting algorithm is a generalized version, or variation, of Insertion Sort, which successively reduces the interval, or gap, between elements to be sorted. There are many different ways / sequences to do this, but we will be using Shell's Original Sequence, which is similar to the splitting in merge sort. 
+This sorting algorithm is a generalized version, or variation, of Insertion Sort, which successively reduces the interval, or gap, between elements to be sorted. This means that elements that are larger or smaller will be grouped together so that Insertion Sort doesn't have to perform far-away swaps. There are many different ways / sequences to do this, but we will be using Shell's Original Sequence, which is similar to the splitting in merge sort. 
 Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Shellsort Time Complexity
 
-Worst: O(n(lgn)^2) </br>
-Average: Θ(n(lgn)^2) </br>
-Best: Ω(nlgn)	</br>
+Worst Case: O(n(lgn)^2) </br>
+Average Case: Θ(n(lgn)^2) </br>
+Best Case: Ω(nlgn)	</br>
 
 ### Introsort
 
 This sorting algorithm is a hybrid sorting algorithm, consisting of Insertion Sort, Heapsort, and Partitioning from Quicksort, where, instead of going through the entire array, the algorithm recursively calls itself for each half. 
-When the size is 16 of less, Insertion Sort is called because, as discussed above, Insertion Sort works well with small sized arrays. When the depth, which is defined as two times the log of the size of the array, is zero, Heapsort is called. Otherwise, Quicksort is called.
+When the size is 16 of less, Insertion Sort is called because, as discussed above, Insertion Sort works well with small-sized arrays. When the depth, which is defined as two times the log of the size of the array, is zero, Heapsort is called. Otherwise, Quicksort is called.
 Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Introsort Time Complexity
 
-Worst: O(nlgn) </br>
-Average: Θ(nlgn) </br>
-Best: Ω(nlgn)	</br>
+Worst Case: O(nlgn) </br>
+Average Case: Θ(nlgn) </br>
+Best Case: Ω(nlgn)	</br>
 
 ### Timsort
 
@@ -110,9 +110,9 @@ See code for a more detailed description of the functions and such. Further anal
 
 #### Timsort Time Complexity
 
-Worst: O(nlgn) </br>
-Average: Θ(nlgn) </br>
-Best: Ω(n) </br>
+Worst Case: O(nlgn) </br>
+Average Case: Θ(nlgn) </br>
+Best Case: Ω(n) </br>
 
 # Installation, Configuration, Execution
 
