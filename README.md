@@ -93,7 +93,7 @@ Best Case: Ω(nlgn)	</br>
 ### Introsort
 
 This sorting algorithm is a hybrid sorting algorithm, consisting of Insertion Sort, Heapsort, and Partitioning from Quicksort, where, instead of going through the entire array, the algorithm recursively calls itself for each half. 
-When the size is 16 of less, Insertion Sort is called because, as discussed above, Insertion Sort works well with small-sized arrays. When the depth, which is defined as two times the log of the size of the array, is zero, Heapsort is called. Otherwise, Quicksort is called.
+When the size is 16 of less, Insertion Sort is called because, as will be discussed, Insertion Sort works well with small-sized arrays. When the depth, which is defined as two times the log of the size of the array, is zero, Heapsort is called. Otherwise, Quicksort is called.
 Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Introsort Time Complexity
@@ -105,7 +105,7 @@ Best Case: Ω(nlgn)	</br>
 ### Timsort
 
 This sorting algorithm is a hybrid sorting algorithm, consisting of Insertion Sort and Merging from Merge Sort. It should be noted that these two fundamental algorithms are modified for Timsort to work on portions of the array. 
-The algorithm splits the array up into 2^n segments known as "Run." Insertion Sort operates on each 2^n segment of the array, and then each segment is merged together incrementally using the modified merge discussed above.
+The algorithm splits the array up into 2^n segments known as "Run." Insertion Sort operates on each 2^n segment of the array, and then the segments are merged together incrementally using the modified merge discussed above.
 See code for a more detailed description of the functions and such. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Timsort Time Complexity
