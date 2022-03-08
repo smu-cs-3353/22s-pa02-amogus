@@ -425,4 +425,10 @@ Randomized quicksort has a worst case of O(n^2), just like insertion sort. When 
 Merge sort has a published worst case of O(n\*logn). This means that merge sort should perform better than both insertion sort and quicksort since insertion sort and quicksort are O(n^2) while merge sort is O(n\*logn). Examining the data, we find these results which means that our results match the published results.
 
 ### Shell Sort
-Shell sort has a 
+Shell sort has a worst case of O(n^2). Unfortunately, we did not generate the worst case dataset for this algorithm, so instead we will analyze the average case which is O(n\*logn). Since the average case of Shell Sort is O(n\*logn), this algorithm should be faster than Insertion sort and Randomized Quicksort. Also, it should be either faster than Merge sort or around the same as Merger sort. When analyzing the data, we find that this algorithm is faster than Merge sort which gives us similar results to the published results.
+
+### Intro Sort
+Intro Sort has a worst case of O(n\*logn), so this algorithm should have a speed similar to Shell sort. Looking at the data, we find that it is very similar to Shell sort which means it has similar results to the published results.
+
+# Tim Sort
+Like with Intro Sort, it has a worst case of O(n\*logn), so this algorithm should have a similar speed to Shell sort and Intro sort. We find this is the case meaning this algorithm also matches the published results.
