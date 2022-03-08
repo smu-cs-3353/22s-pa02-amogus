@@ -333,6 +333,50 @@ Examining all the "Performance With Duplicates Vs. Performance Without Duplicate
 
 ## Results - Performance On Sorted Array Vs. Performance On Unsorted Array
 
+### Insertion Sort
+![Insertion Sort Sorted Array Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Insertion%20Sort%20(Integer).png)
+![Insertion Sort Sorted Array Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Insertion%20Sort%20(String).png)
+
+### Randomized Quicksort
+![Randomized Quicksort Sorted Array Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Quicksort%20(Integer).png)
+![Randomized Quicksort Sorted Array Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Quicksort%20(String).png)
+
+### Merge Sort
+![Merge Sort Sorted Array Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Merge%20Sort%20(Integer).png)
+![Merge Sort Sorted Array Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Merge%20Sort%20(String).png)
+
+### Shell Sort
+![Shell Sort Sorted Array Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Shell%20Sort%20(Integer).png)
+![Shell Sort Sorted Array Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Shell%20Sort%20(String).png)
+
+### Intro Sort
+![Intro Sort Sorted Array Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Intro%20Sort%20(Integer).png)
+![Intro Sort Sorted Array Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Intro%20Sort%20(String).png)
+
+### Tim Sort
+![Tim Sort Sorted Array Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Tim%20Sort%20(Integer).png)
+![Tim Sort Sorted Array Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Tim%20Sort%20(String).png)
+
 ## Analysis - Performance On Sorted Array Vs. Performance On Unsorted Array
+
+### Insertion Sort
+Insertion sort performed poorly on both the 60% sorted array and the unsorted array, but it performed really well on the 100% sorted array. Considering that insertion sort's best case is when an array is 100% sorted, this behavior is expected. The behavior for the algorithm was the same for both the string and integer arrays showing that there's not much of a difference between the two.
+
+### Randomized Quicksort
+With randomized quicksort, the algorithm seemed to perform about the same on all three sorted percentages. Though, for both the integer and the string arrays, the 60% sorted array seemed to take a bit longer to sort than the 100% sorted algorithm. One difference between the integer array and the string array is that the unsorted array seemed to take the longest with the 500,000 array of integers while taking about as long as the string array of the same size. This difference in sorting speed is likely be due to the environemnt which the algorithm was run on.
+
+Relating this algorithm to Insertion Sort, we can see it performed significantly better when the array was unsorted and 60% sorted, but it performed worse than insertion sort when the array was 100% sorted.
+
+### Merge Sort
+With integers, merge sort seemed to have a high variance among the sorting speeds on arrays with 500,000 elements with an unsorted array taking the longest amount of time and a 60% sorted array being the fastest.
+
+For strings, the sorting speed on and array with 500,000 elements had a lot less variance and all three sorting percentages very close to each other. In this case, the 100% sorted array took the most time to sort and the 60% sorted array took the smallest time to sort.
+
+For arrays with elements fewer than 500,000, both the integer and string arrays give the same results with the 60% sorted being the fastest and the unsorted being the slowest.
+
+Due to the nature of the algorithm, the sorted elements shouldn't make a difference in speed, so the difference in speed must have come from the system it was run on.
+
+### Shell Sort
+Shell sort had interesting results as the
 
 ## Analysis - Relating Our Results To The Published Upper Bounds
