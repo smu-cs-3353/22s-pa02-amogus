@@ -215,7 +215,23 @@ An output file should already be located in the repository.
 
 ### Data Generation
 
-We will do this later.
+For our data generation script, we decided to use python. In our python code, we create a function that generates a random array with the following parameters:
+- low - The lowest integer to put into the array
+- high - The highest integer to put into the array
+- size - The size of the array
+- mode - Use "I" to generate an integer array and any other string to generate a string array
+- duplicatesPercent - The percentage of duplicates to put into the array (can be a floating point number between 0 and 1)
+- duplicateValueNum - The number to use as a duplicate integer. If the duplicatesPercent variable is greater than 0, this value will be used as the duplicate value in the array if the intger mode was chosen.
+- duplicateValueStr - The string to use as a duplicate string. If the duplicatesPercent variable is greater than 0, this value will be used as the duplicate value in the array if the string mode was chosen.
+- sortPercent - The percentage of the array that should be sorted (can be a floating point number between 0 and 1)
+
+Using these parameters, a function called "randomArr" will be called which will return a single array meeting the requested format.
+
+Additionally, the array will be saved in the script after calling the function. Two parameters are used for this functionality:
+- datasetName - The filename to save the array to
+- delim - Delimiter used to split each element in the array in the file
+
+TO generate integers, we used python list comprehension to generate size number of random values. As for the strings, we generated permutations of the string "abcdefghijklmnopqrstuvwxyz" starting with a string size of 2 and increasing the string size as needed until the array size is met. If any duplicates were added, generate 1-duplicatesPercent random value and duplicatesPercent duplicate value using python list comprehension and concatentated the two arrays together. If a sorted array was requested, we split the array into two parts where one part was sortPercent percent of the array and the other was 1-sortPercent percent of the array. The first part was sorted and then the two arrays were concatentated together.
 
 # Algorithm Analysis
 
@@ -356,6 +372,13 @@ Examining all the "Performance With Duplicates Vs. Performance Without Duplicate
 ### Tim Sort
 ![Tim Sort Sorted Array Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Tim%20Sort%20(Integer).png)
 ![Tim Sort Sorted Array Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Tim%20Sort%20(String).png)
+
+For each graph, There are three curves where each curve represents:
+- Blue - Sorting time for array that is unsorted
+- Orange - Sorting time for array that is 100% sorted
+- Grey - Sorting time for array that is 60% sorted
+
+Additionally, the x-axis represents the time in microseconds the algorithm took to sort the array and the y-axis represents the dataset size being sorted.
 
 ## Analysis - Performance On Sorted Array Vs. Performance On Unsorted Array
 
