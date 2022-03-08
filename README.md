@@ -413,7 +413,7 @@ Tim Sort had results where the 60% sorted and 100% sorted arrays were very close
 This behavior makes sense since insertion sort is the major algorithm used to sort subarrays. The best case for insertion sort si when the array is sorted, so it is reasonable that the algorithm performs worse on unsorted arrays.
 
 ## Analysis - Relating Our Results To The Published Big O Upper Bounds
-For this section, we will mostly be using the data at [Results - Dataset Size Vs. Time To Sort](https://github.com/smu-cs-3353/22s-pa02-amogus/edit/main/README.md#results---dataset-size-vs-time-to-sort) to find if our data is consistent with the upper bounds.
+For this section, we will mostly be using the data at [Results - Dataset Size Vs. Time To Sort](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/README.md#results---dataset-size-vs-time-to-sort) to find if our data is consistent with the upper bounds.
 
 ### Insertion Sort
 Insertion sort has a worst case of O(n^2) and in the data, we can see it has a very n^2 shape. Also, compared to other algorithms, as the dataset gets really large, this dataset performs terribly. So, we can conclude that the worst case for insertion sort matches what our data shows.
@@ -430,5 +430,5 @@ Shell sort has a worst case of O(n^2). Unfortunately, we did not generate the wo
 ### Intro Sort
 Intro Sort has a worst case of O(n\*logn), so this algorithm should have a speed similar to Shell sort. Looking at the data, we find that it is very similar to Shell sort which means it has similar results to the published results.
 
-# Tim Sort
+### Tim Sort
 Like with Intro Sort, it has a worst case of O(n\*logn), so this algorithm should have a similar speed to Shell sort and Intro sort. We find this is the case meaning this algorithm also matches the published results.
