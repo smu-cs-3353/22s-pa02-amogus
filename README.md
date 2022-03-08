@@ -412,4 +412,17 @@ Tim Sort had results where the 60% sorted and 100% sorted arrays were very close
 
 This behavior makes sense since insertion sort is the major algorithm used to sort subarrays. The best case for insertion sort si when the array is sorted, so it is reasonable that the algorithm performs worse on unsorted arrays.
 
-## Analysis - Relating Our Results To The Published Upper Bounds
+## Analysis - Relating Our Results To The Published Big O Upper Bounds
+For this section, we will mostly be using the data at [Results - Dataset Size Vs. Time To Sort](https://github.com/smu-cs-3353/22s-pa02-amogus/edit/main/README.md#results---dataset-size-vs-time-to-sort) to find if our data is consistent with the upper bounds.
+
+### Insertion Sort
+Insertion sort has a worst case of O(n^2) and in the data, we can see it has a very n^2 shape. Also, compared to other algorithms, as the dataset gets really large, this dataset performs terribly. So, we can conclude that the worst case for insertion sort matches what our data shows.
+
+### Randomized Quicksort
+Randomized quicksort has a worst case of O(n^2), just like insertion sort. When examining the data, we find that quicksort performed much worse than most algorithms, but much better than insertion sort. Since insertion sort is expected to run slower than quicksort on large arrays (meaning it has a higher constant in front of the n^2), the published results match our results.
+
+### Merge Sort
+Merge sort has a published worst case of O(n\*logn). This means that merge sort should perform better than both insertion sort and quicksort since insertion sort and quicksort are O(n^2) while merge sort is O(n\*logn). Examining the data, we find these results which means that our results match the published results.
+
+### Shell Sort
+Shell sort has a 
