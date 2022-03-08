@@ -400,6 +400,16 @@ For arrays with elements fewer than 500,000, both the integer and string arrays 
 Due to the nature of the algorithm, the sorted elements shouldn't make a difference in speed, so the difference in speed must have come from the system it was run on.
 
 ### Shell Sort
-Shell sort had interesting results as the
+Shell Sort performed the best on datasets that are 60% sorted for both integers and for strings, but for unsorted and 100% sorted arrays, Shell Sort performed differently between integers and strings. These results leads us to beleive there is not significant difference between the three types of arrays since the speed when sorting the strings should be the same as the speed when sorting integers. We conclude that Shell Sort performs about the same on the three array types and that the data we gathered had a weird variance due to the environment it was run on.
+
+### Intro Sort
+For Intro sort, when the array is large, Intro sort will call Heap Sort every time. When heap sort is called, the best case is when the array is 100% sorted. This behavior is seen in the data as the 100% sorted array was best on the string dataset and was second best on the integer dataset. 
+
+For both the intger and the string arrays, the unsorted array was the worst case which is reasonable since heap sort will reach it's worst case when an array is not sorted. So, the results seen are what we expected.
+
+### Tim Sort
+Tim Sort had results where the 60% sorted and 100% sorted arrays were very close in terms of sorting speed, while the unsorted array was significantly slower than the sorted arrays. 
+
+This behavior makes sense since insertion sort is the major algorithm used to sort subarrays. The best case for insertion sort si when the array is sorted, so it is reasonable that the algorithm performs worse on unsorted arrays.
 
 ## Analysis - Relating Our Results To The Published Upper Bounds
