@@ -296,85 +296,43 @@ So, clearly Insertion Sort is the slowest on large datasets and Intro Sort is th
 
 ## Results - Performance With Duplicates Vs. Performance Without Duplicates
 
+### Insertion Sort
+![Insertion Sort Duplicate Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Insertion%20Sort%20(Integer).png)
+![Insertion Sort Duplicate Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Insertion%20Sort%20(String).png)
+
+### Randomized Quicksort
+![Quicksort Duplicate Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Quicksort%20(Integer).png)
+![Quicksort Duplicate Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Quicksort%20(String).png)
+
+### Merge Sort
+![Merge Sort Duplicate Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Merge%20Sort%20(Integer).png)
+![Merge Sort Duplicate Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Merge%20Sort%20(String).png)
+
+### Shell Sort
+![Shell Sort Duplicate Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Shell%20Sort%20(Integer).png)
+![Shell Sort Duplicate Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Shell%20Sort%20(String).png)
+
+### Intro Sort
+![Intro Sort Duplicate Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Intro%20Sort%20(Integer).png)
+![Intro Sort Duplicate Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Intro%20Sort%20(String).png)
+
+### Tim Sort
+![Tim Sort Duplicate Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Tim%20Sort%20(Integer).png)
+![Tim Sort Duplicate Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Tim%20Sort%20(String).png)
+
+For each graph, There are three curves where each curve represents:
+- Blue - Sorting time for array without duplicates
+- Orange - Sorting time for array with 20% duplicates
+- Grey - Sorting time for array with 40% duplicates
+
+Additionally, the x-axis represents the time in microseconds the algorithm took to sort the array and the y-axis represents the dataset size being sorted.
+
 ## Analysis - Performance With Duplicates Vs. Performance Without Duplicates
+
+Examining all the "Performance With Duplicates Vs. Performance Without Duplicates" data, we can see that almost none of the algorithms have a clear issue with sorting duplicate data. The only exception being Intro Sort on integers where the time taken to sort 500,000 elements with 20% duplicates took a significant longer time than the time taken to sort without duplicates and with 40% duplicates. It is hard to make conclusions on whether the algorithm has issues with 20% duplicates with only this data, but since this algorithm is the only one with a clear duplicate issue, if may be worthwhile to do further analysis if duplicates may be an issue in a dataset used.
 
 ## Results - Performance On Sorted Array Vs. Performance On Unsorted Array
 
 ## Analysis - Performance On Sorted Array Vs. Performance On Unsorted Array
 
 ## Analysis - Relating Our Results To The Published Upper Bounds
-
-## Results By Value
-
-Below are graphs for each dataset:
-
-![Size 10 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Value/Size%2010.png)
-![Size 15 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Value/Size%2015.png)
-![Size 50 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Value/Size%2050.png)
-![Size 100 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Value/Size%20100.png)
-![Size 1000 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Value/Size%201000.png)
-
-In each graph, the different lines represent the different algorithms:
-
-- Blue is the Brute Force Algorithm
-- Orange is the Custom Algorithm
-- Grey is the High Value Algorithm
-
-The trial number is on the x-axis, and the wall value for the algorithm is on the y-axis.</br>
-Below is another plot that shows the relationship among the three algorithms on all datasets.
-
-![Comparizon of All Algorithms on All Datasets](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Value/Average%20Wall%20Value%20vs.%20Dataset%20Size.png)
-
-In this graph, each line and color represents a different algorithm as shown in the graph key. The x-axis represents the dataset size, and the y-axis represents the average value for that data for each algorithm.
-
-## Analysis By Value
-As expected, the <strong>High-Value Algorithm</strong> almost always gave the worst combination value, and the <strong>Brute Force Algorithm</strong> always gave the best value. This makes sense, as the <strong>Brute Force Algorithm</strong> examined every combination, meaning the result would always be the best combination. As for the <strong>High-Value Algorithm</strong>, 
-it was noticed that the result wasn't great as it only picked the pictures with the highest value and didn't take the width of the picture into consideration. The <strong>Custom Algorithm</strong>, on the other hand, did much better than the <strong>High-Value Algorithm</strong> since it took both the width of the picture and the value into consideration. 
-Interestingly, the <strong>Custom Algorithm</strong> gave results that were usually very close to the <strong>Brute Force Algorithm</strong>, meaning that although it was suboptimal, it was still not a bad choice, especially with datasets that could not run on the <strong>Brute Force Algorithm</strong>. </br>
-
-An interesting fact observed from the data is that the <strong>High-Value Algorithm</strong> gave the same average result no matter the dataset size. The other two algorithms gave a better picture combination value as the dataset size increased. Also, as the dataset size increased, the <strong>High-Value Algorithm</strong> diverged more from the other two algorithms. </br>
-
-## Results By Time
-
-Below are graphs for each dataset when comparing the algorithms by the resulting time it took the algorithms to get a result:
-
-![Size 10 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Time/Size%2010.png)
-![Size 15 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Time/Size%2015.png)
-![Size 50 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Time/Size%2050.png)
-![Size 100 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Time/Size%20100.png)
-![Size 1000 Results](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Time/Size%201000.png)
-
-In each graph, the different lines represent the different algorithms:
-
-- Blue is the Brute Force Algorithm
-- Orange is the Custom Algorithm
-- Grey is the High Value Algorithm
-
-The trial number is on the x-axis, and the time taken to run the algorithm is on the y-axis.</br>
-Below are plots showing the relationship among the three algorithms on all datasets.
-
-![Comparizon of All Algorithms on All Datasets](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Time/Average%20Time%20To%20Run%20vs.%20Dataset%20Size%20-%201.png)
-![Comparizon of All Algorithms on All Datasets](https://github.com/smu-cs-3353/22s-pa01-sussybaka/blob/README_Creation/Algorithm%20Analysis/Graphs_Time/Average%20Time%20To%20Run%20vs.%20Dataset%20Size%20-%202.png)
-
-In this graph, each line and color represents a different algorithm as shown in the graph key. The x-axis represents the dataset size, and the y-axis represents the average time for that data for each algorithm.
-
-## Analysis By Time - Time Complexities
-One of the most important parts of algorithm analysis revolves around time complexities, and how different algorithms may be more accurate, but take much more time to execute. A perfect example of this happening can be seen in this project, in fact, between the <strong>Brute Force Algorithm</strong> and the other two algorithms. While the <strong>Brute Force Algorithm</strong> would take a large time to find the best results, the other two algorithms would find suboptimal results in a short time. 
-In order to quantify, or identify, the time costs of each of these algorithms, it is important to use big-omega, big-theta, and big-o notations, which stand for best case, average case, and worst case, respectively. We first looked at the <strong>Brute Force Algorithm</strong> and came to the conclusion that its big-omega would be Ω(n), while its big-o would be O(2^n). We were able to come to this conclusion due to the nature of Brute Forcing and our optimization of the algorithm. We noted that if each of the paintings were the exact size of the wall or greater, then there could only be one painting per subset, meaning every painting would only be iterated over once, or Ω(n) time. On the other hand, if all the paintings were of infinitely small size, then every painting in the set could be added to the wall, and, as we discussed in class, we would have to check every possible permutation, or O(2^n) time. 
-Next, we looked at the time complexity of the other two algorithms. Since the <strong>High-Value Algorithm</strong> and the <strong>Custom Algorithm</strong> both implemented standard sort, we can immediately know the time complexities for these two algorithms. As is commonly known, the c standard sort has an average, or big-theta, time complexity of Θ(nlogn). This is the same for its big-o as well. This is very clearly shown in running the project above as well, as when increasing the dataset, the <strong>Brute Force Algorithm</strong> would be unable to run, while the other two had no problems.
-
-In conclusion, looking only at the worst case, or big-o notation, or each of the algorithms, we found:
-
-- <strong>Brute Force Algorithm</strong>: O(2^n)
-- <strong>High-Value Algorithm</strong>: O(nlogn)
-- <strong>Custom Algorithm</strong>: O(nlogn)
-
-# Concluding Remarks
-
-In this section, we discuss what has been learned by implementing and analyzing these algorithms, from their usages to their time complexities. We can first note that the <strong>Brute Force Algorithm</strong>, while finding the best results each time, could not run on larger datasets due to its time cost restriction. In the real world, an algorithm like this would be unrealistic, as running on hundreds of thousands, if not millions, of data would be impossible. </br>
-
-This is where the <strong>High-Value Algorithm</strong> and the <strong>Custom Algorithm</strong> become important. Both of these algorithms have the capability to run large amounts of data due to their complexities, but we still see a clear difference between them. As shown on the graphical output above, we note that for both small and large input, the <strong>High-Value Algorithm</strong> would remain stagnant, not performing any better as the amount of data rose. </br>
-
-On the other hand, the <strong>Custom Algorithm</strong> was able to mostly keep up with the <strong>Brute Force Algorithm</strong>, wildly outperforming the <strong>High-Value Algorithm</strong>, and run larger datasets. In other words, the <strong>Custom Algorithm</strong> was able to implement the time complexity <strong>High-Value Algorithm</strong> as well as the accuracy of the <strong>Brute Force Algorithm</strong>. </br>
-
-Clearly, the two most important factors here are accuracy and time complexity. Often, an algorithm must sacrifice one to achieve the other. In this project, we attempted, and succeeded, at creating an algorithm that balanced itself between the two, capturing both the high accuracy and low time cost needed to work in real-life scenarios. In fact, much of algorithm analysis is situated around the balance of these two very important factors, as well as functions that can be used to optimize said balance.
