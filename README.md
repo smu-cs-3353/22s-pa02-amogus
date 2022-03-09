@@ -337,7 +337,7 @@ Additionally, the x-axis represents the dataset size being sorted and the y-axis
 
 ## Analysis: Performance With Duplicates Vs. Performance Without Duplicates
 
-Examining all the "Performance With Duplicates Vs. Performance Without Duplicates" data, we can see that almost none of the algorithms have a clear issue with sorting duplicate data. The only exception being Intro Sort on integers where the time taken to sort 500,000 elements with 20% duplicates took a significant longer time than the time taken to sort without duplicates and with 40% duplicates. It is hard to make conclusions on whether the algorithm has issues with 20% duplicates with only this data, but since this algorithm is the only one with a clear duplicate issue, it may be worthwhile to do further analysis on duplicates being an issue in a dataset used.
+Examining all the "Performance With Duplicates Vs. Performance Without Duplicates" data, we can see that almost none of the algorithms have a clear issue with sorting duplicate data. The only exception being <b>Introsort</b> on integers where the time taken to sort 500,000 elements with 20% duplicates took a significant longer time than the time taken to sort without duplicates and with 40% duplicates. It is hard to make conclusions on whether the algorithm has issues with 20% duplicates with only this data, but since this algorithm is the only one with a clear duplicate issue, it may be worthwhile to do further analysis on duplicates being an issue in a dataset used.
 
 ## Results: Performance On Sorted Array Vs. Performance On Unsorted Array
 
