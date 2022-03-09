@@ -76,7 +76,7 @@ Best Case: Ω(nlgn)</br>
 ### Merge Sort
 
 This sorting algorithm follows two major steps: The first, being the split step, where the array gets split into a number of subarrays, and the second, being the recombine step, where each of the halved arrays are merged using loops. 
-We note that each element is iterated over at each level, which is where the cost comes from, and how the merge occurs. Merge sort is a divide and conquer algorithm as discussed above. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
+We note that each element is iterated over at each level, which is where the cost comes from, and how the merge occurs. <b>Merge Sort</b> is a divide and conquer algorithm as discussed above. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Merge Sort Time Complexity
 
@@ -86,7 +86,7 @@ Best Case: Ω(nlgn)</br>
 
 ### Shellsort
 
-This sorting algorithm is a generalized version, or variation, of Insertion Sort, which successively reduces the interval, or gap, between elements to be sorted. This means that elements that are larger or smaller will be grouped together so that Insertion Sort doesn't have to perform far-away swaps. There are many different ways / sequences to do this, but we will be using Shell's Original Sequence, which is similar to the splitting in merge sort. 
+This sorting algorithm is a generalized version, or variation, of <b>Insertion Sort</b>, which successively reduces the interval, or gap, between elements to be sorted. This means that elements that are larger or smaller will be grouped together so that Insertion Sort doesn't have to perform far-away swaps. There are many different ways / sequences to do this, but we will be using Shell's Original Sequence, which is similar to the splitting in merge sort. 
 Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Shellsort Time Complexity
@@ -97,8 +97,8 @@ Best Case: Ω(nlgn)	</br>
 
 ### Introsort
 
-This sorting algorithm is a hybrid sorting algorithm, consisting of Insertion Sort, Heapsort, and Partitioning from Quicksort, where, instead of going through the entire array, the algorithm recursively calls itself for each half. 
-When the size is 16 of less, Insertion Sort is called because, as will be discussed, Insertion Sort works well with small-sized arrays. When the depth, which is defined as two times the log of the size of the array, is zero, Heapsort is called. Otherwise, Quicksort is called. This is to maintain the quickest, or best time complexity, runtime at all times. 
+This sorting algorithm is a hybrid sorting algorithm, consisting of <b>Insertion Sort</b>, <b>Heapsort</b>, and Partitioning from <b>Randomized Quicksort</b>, where, instead of going through the entire array, the algorithm recursively calls itself for each half. 
+When the size is 16 of less, <b>Insertion Sort</b> is called because, as will be discussed, it works well with small-sized arrays. When the depth, which is defined as two times the log of the size of the array, is zero, <b>Heapsort</b> is called. Otherwise, <b>Randomized Quicksort</b> is called. This is to maintain the quickest, or best time complexity, runtime at all times. 
 Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Introsort Time Complexity
@@ -109,8 +109,8 @@ Best Case: Ω(nlgn)	</br>
 
 ### Timsort
 
-This sorting algorithm is a hybrid sorting algorithm, consisting of Insertion Sort and Merging from Merge Sort. It should be noted that these two fundamental algorithms are modified for Timsort to work on portions of the array. 
-The algorithm splits the array up into 2^n segments known as "Run." Insertion Sort operates on each 2^n segment of the array, and then the segments are merged together incrementally using the modified merge discussed above.
+This sorting algorithm is a hybrid sorting algorithm, consisting of <b>Insertion Sort</b> and Merging from <b>Merge Sort</b>. It should be noted that these two fundamental algorithms are modified for <b>Timsort</b> to work on portions of the array. 
+The algorithm splits the array up into 2^n segments known as "Run." <b>Insertion Sort</b> operates on each 2^n segment of the array, and then the segments are merged together incrementally using the modified merge discussed above.
 See code for a more detailed description of the functions and such. Further analysis of this algorithm can be found in the [analysis section](#algorithm-analysis).
 
 #### Timsort Time Complexity
@@ -274,14 +274,14 @@ Below are the graphs for the integer dataset:
 ![Time To Sort By Algorithm (Integer) 4](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(Integer)%204.png)
 
 In each graph, the different lines represent the different algorithms:
-- Dark Blue is Insertion Sort
-- Orange is Randomized Quicksort
-- Gray is Merge Sort
-- Yellow is Shell Sort
-- Light Blue is Intro Sort
-- Green is Tim Sort
+- Dark Blue is <b>Insertion Sort</b>
+- Orange is <b>Randomized Quicksort</b>
+- Gray is <b>Merge Sort</b>
+- Yellow is <b>Shellsort</b>
+- Light Blue is <b>Introsort</b>
+- Green is <b>Timsort</b>
 
-Note: There are multiple graphs. The only difference among the graphs are the sorting algorithms shown. For example, since the first graph only shows how insertion sort performs since the sorting time is so high, it is removed from the other graphs so the other algorithms can be visualized accurately.
+Note: There are multiple graphs. The only difference among the graphs are the sorting algorithms shown. For example, since the first graph only shows how <b>Insertion Sort</b> performs since the sorting time is so high, it is removed from the other graphs so the other algorithms can be visualized accurately.
 
 The dataset size is on the x-axis and the time it takes the algorithm to sort the array is on the y-axis. Below are the graphs for the string dataset with the same format as the integer dataset:
 
@@ -293,14 +293,14 @@ The dataset size is on the x-axis and the time it takes the algorithm to sort th
 ## Analysis: Dataset Size Vs. Time To Sort
 
 In both the string and integer datasets, the algorithm sorting speed stays consistent in the following order:
-1. Insertion Sort (Slowest)
-2. Randomized Quicksort
-3. Merge Sort
-4. Tim Sort
-5. Shell Sort
-6. Intro Sort (Fastest)
+1. <b>Insertion Sort</b> (Slowest)
+2. <b>Randomized Quicksort</b>
+3. <b>Merge Sort</b>
+4. <b>Timsort</b>
+5. <b>Shellsort</b>
+6. <b>Introsort</b> (Fastest)
 
-So, clearly Insertion Sort is the slowest on large datasets and Intro Sort is the fastest on large datasets.
+So, clearly <b>Insertion Sort</b> is the slowest on large datasets and <b>Introsort</b> is the fastest on large datasets.
 
 ## Results: Performance With Duplicates Vs. Performance Without Duplicates
 
@@ -399,7 +399,7 @@ For both the intger and the string arrays, the unsorted array was the worst case
 <b>Timsort</b> had results where the 60% sorted and 100% sorted arrays were very close in terms of sorting speed, while the unsorted array was significantly slower than the sorted arrays. This behavior makes sense since <b>Insertion Sort</b> is the major algorithm used to sort subarrays. The best case for <b>Insertion Sort</b> occurs when the array is sorted, so it is reasonable that the algorithm performs worse on unsorted arrays.
 
 ## Analysis: Relating Our Results To The Published Big O Upper Bounds
-For this section, we will mostly be using the data in [Results - Dataset Size Vs. Time To Sort](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/README.md#results---dataset-size-vs-time-to-sort) to find if our collected data is consistent with the upper bounds.
+For this section, we will mostly be using the data in Results: Dataset Size Vs. Time To Sort to find if our collected data is consistent with the upper bounds.
 
 ### Insertion Sort
 <b>Insertion Sort</b> has a worst case of O(n^2) and, in the data, we can see it has a very n^2 graphical output. This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted, so we can conclude that the worst case for <b>Insertion Sort</b> matches what our data shows. 
