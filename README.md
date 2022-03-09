@@ -226,9 +226,7 @@ For our data generation script, we decided to use python. In our python code, we
 - <b>duplicateValueStr</b> - The string to use as a duplicate string. If the duplicatesPercent variable is greater than 0, this value will be used as the duplicate value in the array if the string mode was chosen.
 - <b>sortPercent</b> - The percentage of the array that should be sorted (floating point from 0 to 1).
 
-Using these parameters, a function called "randomArr" will be called which will return a single array meeting the requested format.
-
-Additionally, the array will be saved in the script after calling the function. Two parameters are used for this functionality:
+Using these parameters, a function called "randomArr" will be called which will return a single array meeting the requested format. Additionally, the array will be saved in the script after calling the function. Two parameters are used for this functionality:
 - <b>datasetName</b> - The filename in which the array will be saved.
 - <b>delim</b> - Delimiter used to split each element in the array.
 
