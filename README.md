@@ -420,3 +420,11 @@ For this section, we will mostly be using the data in [Results - Dataset Size Vs
 
 ### Timsort
 Like with b>Introsort</b>, <b>Timsort</b> has a worst case of O(n\*logn), so this algorithm should have a similar speed to the two previois algorithms. We find this to be the case, meaning this algorithm also matches the published results.
+
+# Concluding Remarks
+
+In this section, we discuss what has been learned by implementing and analyzing these algorithms, from their usages to their time complexities. In the real world, each of these algorithms are used for different things. For example, <b>Timsort</b> is used as Python's standard sort, while <b>Introsort</b> is used as Cpp's standard sort.</br>
+
+In this project, we analyzed specifically the algorithm performance, without putting them into actual use in a real world program. Therefore, while we can empirically define and support definitions of these algorithms, it is still important to test all of them when implementing a sorting algorithm.
+
+Unlike the last project, accuracy is not of importance here. We only need analyze the time complexity, or timing, of each algorithm, although space can sometimes play an important role in this as well. When choosing an algorithm, it is important to look past just time complexity, and understand the fundamentals of these algorithms.
