@@ -221,10 +221,10 @@ For our data generation script, we decided to use python. In our python code, we
 - <b>high</b> - The highest integer to put into the array (Max Val).
 - <b>size</b> - The size of the array.
 - <b>mode</b> - Use "I" to generate an integer array and any other string to generate a string array.
-- <b>duplicatesPercent</b> - The percentage of duplicates to put into the array (can be a floating point number between 0 and 1).
+- <b>duplicatesPercent</b> - The percentage of duplicates to put into the array (floating point from 0 to 1).
 - <b>duplicateValueNum</b> - The number to use as a duplicate integer. If the duplicatesPercent variable is greater than 0, this value will be used as the duplicate value in the array if the intger mode was chosen.
 - <b>duplicateValueStr</b> - The string to use as a duplicate string. If the duplicatesPercent variable is greater than 0, this value will be used as the duplicate value in the array if the string mode was chosen.
-- <b>sortPercent</b> - The percentage of the array that should be sorted (can be a floating point number between 0 and 1).
+- <b>sortPercent</b> - The percentage of the array that should be sorted (floating point from 0 to 1).
 
 Using these parameters, a function called "randomArr" will be called which will return a single array meeting the requested format.
 
