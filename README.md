@@ -18,11 +18,14 @@
      - Sample Output
      - Data Creation
 - [Algorithm Analysis](#algorithm-analysis)
-  - Setup
-  - Results By Value
-  - Analysis By Value
-  - Results By Time
-  - Analysis By Time
+  - Analysis Setup
+  - Results: Dataset Size Vs. Time To Sort
+  - Analysis: Dataset Size Vs. Time To Sort
+  - Results: Performance With Duplicates Vs. Performance Without Duplicates
+  - Analysis: Performance With Duplicates Vs. Performance Without Duplicates
+  - Results: Performance On Sorted Array Vs. Performance On Unsorted Array
+  - Analysis: Performance On Sorted Array Vs. Performance On Unsorted Array
+  - Analysis: Relating Our Results To The Published Big O Upper Bounds
 - [Concluding Remarks](#concluding-remarks)
 
 # General Project Information
@@ -202,8 +205,6 @@ All the data used in analysis is already located in the repository, but more dat
 
 The project has one output file which is formatted as such:. </br>
 
-outfile.csv
-
 ```
 File Name,Size,Integer/String,Insertion,Random Quicksort,Merge,Shell,Intro,Tim
 ./data/integer/1000/1000_0D_0S.txt,1000,integer,97,1707,93,7,16,21
@@ -216,33 +217,26 @@ An output file should already be located in the repository.
 ### Data Generation
 
 For our data generation script, we decided to use python. In our python code, we create a function that generates a random array with the following parameters:
-- low - The lowest integer to put into the array
-- high - The highest integer to put into the array
-- size - The size of the array
-- mode - Use "I" to generate an integer array and any other string to generate a string array
-- duplicatesPercent - The percentage of duplicates to put into the array (can be a floating point number between 0 and 1)
-- duplicateValueNum - The number to use as a duplicate integer. If the duplicatesPercent variable is greater than 0, this value will be used as the duplicate value in the array if the intger mode was chosen.
-- duplicateValueStr - The string to use as a duplicate string. If the duplicatesPercent variable is greater than 0, this value will be used as the duplicate value in the array if the string mode was chosen.
-- sortPercent - The percentage of the array that should be sorted (can be a floating point number between 0 and 1)
+- <b>low</b> - The lowest integer to put into the array (Min Val).
+- <b>high</b> - The highest integer to put into the array (Max Val).
+- <b>size</b> - The size of the array.
+- <b>mode</b> - Use "I" to generate an integer array and any other string to generate a string array.
+- <b>duplicatesPercent</b> - The percentage of duplicates to put into the array (can be a floating point number between 0 and 1).
+- <b>duplicateValueNum</b> - The number to use as a duplicate integer. If the duplicatesPercent variable is greater than 0, this value will be used as the duplicate value in the array if the intger mode was chosen.
+- <b>duplicateValueStr</b> - The string to use as a duplicate string. If the duplicatesPercent variable is greater than 0, this value will be used as the duplicate value in the array if the string mode was chosen.
+- <b>sortPercent</b> - The percentage of the array that should be sorted (can be a floating point number between 0 and 1).
 
 Using these parameters, a function called "randomArr" will be called which will return a single array meeting the requested format.
 
 Additionally, the array will be saved in the script after calling the function. Two parameters are used for this functionality:
-- datasetName - The filename to save the array to
-- delim - Delimiter used to split each element in the array in the file
+- <b>datasetName</b> - The filename in which the array will be saved.
+- <b>delim</b> - Delimiter used to split each element in the array.
 
-TO generate integers, we used python list comprehension to generate size number of random values. As for the strings, we generated permutations of the string "abcdefghijklmnopqrstuvwxyz" starting with a string size of 2 and increasing the string size as needed until the array size is met. If any duplicates were added, generate 1-duplicatesPercent random value and duplicatesPercent duplicate value using python list comprehension and concatentated the two arrays together. If a sorted array was requested, we split the array into two parts where one part was sortPercent percent of the array and the other was 1-sortPercent percent of the array. The first part was sorted and then the two arrays were concatentated together.
+To generate integers, we used python list comprehension to generate size number of random values. As for the strings, we generated permutations of the string "abcdefghijklmnopqrstuvwxyz" starting with a string size of 2 and increasing the string size as needed until the array size is met. If any duplicates were added, we generated 1-duplicatesPercent random value and duplicatesPercent duplicate value using python list comprehension and concatentated the two arrays together. If a sorted array was requested, we split the array into two parts where one part was sortPercent percent of the array and the other was 1-sortPercent percent of the array. The first part was sorted and then the two arrays were concatentated together.
 
 # Algorithm Analysis
 
 This section will examine how each of the six algorithms perform, and how they compare against each other.
-
-## Insertion Sort Analysis
-
-This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted. 
-Note that Insertion Sort is used when the number of elements is small, or when the array is sorted / almost sorted. This will be discussed further later on, during the portion on Introsort.
-
-
 
 ## Analysis Setup
 
@@ -272,7 +266,7 @@ So, in total, there are 60 input sample files that will be used to test the algo
 
 When doing analysis, we looked at the time cost of each of the algorithms by using the Chrono library. This method is is much more accurate and precise than the timing command, which is why we included it within this project.
 
-## Results - Dataset Size Vs. Time To Sort
+## Results: Dataset Size Vs. Time To Sort
 
 Below are the graphs for the integer dataset:
 
@@ -284,12 +278,12 @@ Below are the graphs for the integer dataset:
 In each graph, the different lines represent the different algorithms:
 - Dark Blue is Insertion Sort
 - Orange is Randomized Quicksort
-- Grey is Merge Sort
+- Gray is Merge Sort
 - Yellow is Shell Sort
 - Light Blue is Intro Sort
 - Green is Tim Sort
 
-Note: There are multiple graphs. The only difference among the graphs are the sorting algorithms show. For example, since the first graph only shows how insertion sort performs since the sorting time is so high, it is removed from the other graphs so the other algorithms can be visualized.
+Note: There are multiple graphs. The only difference among the graphs are the sorting algorithms shown. For example, since the first graph only shows how insertion sort performs since the sorting time is so high, it is removed from the other graphs so the other algorithms can be visualized accurately.
 
 The dataset size is on the x-axis and the time it takes the algorithm to sort the array is on the y-axis. Below are the graphs for the string dataset with the same format as the integer dataset:
 
@@ -298,19 +292,19 @@ The dataset size is on the x-axis and the time it takes the algorithm to sort th
 ![Time To Sort By Algorithm (String) 1](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(String)%203.png)
 ![Time To Sort By Algorithm (String) 1](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Size%20Vs%20Time/Time%20To%20Sort%20By%20Algorithm%20(String)%204.png)
 
-## Analysis - Dataset Size Vs. Time To Sort
+## Analysis: Dataset Size Vs. Time To Sort
 
 In both the string and integer datasets, the algorithm sorting speed stays consistent in the following order:
-1. Insertion Sort (the slowest)
+1. Insertion Sort (Slowest)
 2. Randomized Quicksort
 3. Merge Sort
 4. Tim Sort
 5. Shell Sort
-6. Intro Sort (the fastest)
+6. Intro Sort (Fastest)
 
 So, clearly Insertion Sort is the slowest on large datasets and Intro Sort is the fastest on large datasets.
 
-## Results - Performance With Duplicates Vs. Performance Without Duplicates
+## Results: Performance With Duplicates Vs. Performance Without Duplicates
 
 ### Insertion Sort
 ![Insertion Sort Duplicate Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Insertion%20Sort%20(Integer).png)
@@ -336,18 +330,18 @@ So, clearly Insertion Sort is the slowest on large datasets and Intro Sort is th
 ![Tim Sort Duplicate Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Tim%20Sort%20(Integer).png)
 ![Tim Sort Duplicate Sorting Time (String)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/No%20Duplicates%20vs.%20Duplicated%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Duplicates%20For%20Tim%20Sort%20(String).png)
 
-For each graph, There are three curves where each curve represents:
+For each graph, there are three curves where each curve represents:
 - Blue - Sorting time for array without duplicates
 - Orange - Sorting time for array with 20% duplicates
-- Grey - Sorting time for array with 40% duplicates
+- Gray - Sorting time for array with 40% duplicates
 
-Additionally, the x-axis represents the time in microseconds the algorithm took to sort the array and the y-axis represents the dataset size being sorted.
+Additionally, the x-axis represents the dataset size being sorted and the y-axis represents the time in microseconds the algorithm took to sort the array. 
 
-## Analysis - Performance With Duplicates Vs. Performance Without Duplicates
+## Analysis: Performance With Duplicates Vs. Performance Without Duplicates
 
-Examining all the "Performance With Duplicates Vs. Performance Without Duplicates" data, we can see that almost none of the algorithms have a clear issue with sorting duplicate data. The only exception being Intro Sort on integers where the time taken to sort 500,000 elements with 20% duplicates took a significant longer time than the time taken to sort without duplicates and with 40% duplicates. It is hard to make conclusions on whether the algorithm has issues with 20% duplicates with only this data, but since this algorithm is the only one with a clear duplicate issue, if may be worthwhile to do further analysis if duplicates may be an issue in a dataset used.
+Examining all the "Performance With Duplicates Vs. Performance Without Duplicates" data, we can see that almost none of the algorithms have a clear issue with sorting duplicate data. The only exception being Intro Sort on integers where the time taken to sort 500,000 elements with 20% duplicates took a significant longer time than the time taken to sort without duplicates and with 40% duplicates. It is hard to make conclusions on whether the algorithm has issues with 20% duplicates with only this data, but since this algorithm is the only one with a clear duplicate issue, it may be worthwhile to do further analysis on duplicates being an issue in a dataset used.
 
-## Results - Performance On Sorted Array Vs. Performance On Unsorted Array
+## Results: Performance On Sorted Array Vs. Performance On Unsorted Array
 
 ### Insertion Sort
 ![Insertion Sort Sorted Array Sorting Time (Integer)](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/Data%20Analysis/Randomized%20vs.%20Sorted%20Performance/Time%20To%20Sort%20Based%20On%20Percent%20Sorted%20For%20Insertion%20Sort%20(Integer).png)
@@ -376,59 +370,53 @@ Examining all the "Performance With Duplicates Vs. Performance Without Duplicate
 For each graph, There are three curves where each curve represents:
 - Blue - Sorting time for array that is unsorted
 - Orange - Sorting time for array that is 100% sorted
-- Grey - Sorting time for array that is 60% sorted
+- Gray - Sorting time for array that is 60% sorted
 
-Additionally, the x-axis represents the time in microseconds the algorithm took to sort the array and the y-axis represents the dataset size being sorted.
+Additionally, the x-axis represents the dataset size being sorted and the y-axis represents the time in microseconds the algorithm took to sort the array. 
 
-## Analysis - Performance On Sorted Array Vs. Performance On Unsorted Array
+## Analysis: Performance On Sorted Array Vs. Performance On Unsorted Array
 
 ### Insertion Sort
-Insertion sort performed poorly on both the 60% sorted array and the unsorted array, but it performed really well on the 100% sorted array. Considering that insertion sort's best case is when an array is 100% sorted, this behavior is expected. The behavior for the algorithm was the same for both the string and integer arrays showing that there's not much of a difference between the two.
+<b>Insertion Sort</b> performed poorly on both the 60% sorted array and the unsorted array, but it performed really well on the 100% sorted array. Considering that the best case is when an array is 100% sorted, this behavior is expected. The behavior for the algorithm was the same for both the string and integer arrays, showing that there's not much of a difference between the two dataset types, at least here.
 
 ### Randomized Quicksort
-With randomized quicksort, the algorithm seemed to perform about the same on all three sorted percentages. Though, for both the integer and the string arrays, the 60% sorted array seemed to take a bit longer to sort than the 100% sorted algorithm. One difference between the integer array and the string array is that the unsorted array seemed to take the longest with the 500,000 array of integers while taking about as long as the string array of the same size. This difference in sorting speed is likely be due to the environemnt which the algorithm was run on.
+With <b>Randomized Quicksort</b>, the algorithm seemed to perform about the same on all three sorted percentages. Though, for both the integer and the string arrays, the 60% sorted array seemed to take a bit longer to sort than the 100% sorted algorithm. One difference between the integer array and the string array was that the unsorted array seemed to take the longest with the 500,000 array of integers, while taking about as long as the string array of the same size. This difference in sorting speed is likely be due to the environemnt which the algorithm was run on. </br>
 
-Relating this algorithm to Insertion Sort, we can see it performed significantly better when the array was unsorted and 60% sorted, but it performed worse than insertion sort when the array was 100% sorted.
+Relating this algorithm to <b>Insertion Sort</b>, we can see it performed significantly better when the array was unsorted and 60% sorted, but it performed worse than insertion sort when the array was 100% sorted, a fact that is important in <b>Introsort</b> and <b>Timsort</b>. 
 
 ### Merge Sort
-With integers, merge sort seemed to have a high variance among the sorting speeds on arrays with 500,000 elements with an unsorted array taking the longest amount of time and a 60% sorted array being the fastest.
-
+With integers, <b>Merge Sort</b> seemed to have a high variance among the sorting speeds on arrays with 500,000 elements with an unsorted array taking the longest amount of time and a 60% sorted array being the fastest.
 For strings, the sorting speed on and array with 500,000 elements had a lot less variance and all three sorting percentages very close to each other. In this case, the 100% sorted array took the most time to sort and the 60% sorted array took the smallest time to sort.
-
 For arrays with elements fewer than 500,000, both the integer and string arrays give the same results with the 60% sorted being the fastest and the unsorted being the slowest.
-
 Due to the nature of the algorithm, the sorted elements shouldn't make a difference in speed, so the difference in speed must have come from the system it was run on.
 
-### Shell Sort
-Shell Sort performed the best on datasets that are 60% sorted for both integers and for strings, but for unsorted and 100% sorted arrays, Shell Sort performed differently between integers and strings. These results leads us to beleive there is not significant difference between the three types of arrays since the speed when sorting the strings should be the same as the speed when sorting integers. We conclude that Shell Sort performs about the same on the three array types and that the data we gathered had a weird variance due to the environment it was run on.
+### Shellsort
+<b>Shellsort</b> performed the best on datasets that are 60% sorted for both integers and for strings, but for unsorted and 100% sorted arrays, the algorithm performed differently between integers and strings. These results lead us to beleive that there is not significant difference between the three types of arrays since the speed when sorting the strings should be the same as the speed when sorting integers. We conclude that <b>Shellsort</b> performs about the same on the three array types and that the data we gathered had a strange variance due to the environment it was run on.
 
-### Intro Sort
-For Intro sort, when the array is large, Intro sort will call Heap Sort every time. When heap sort is called, the best case is when the array is 100% sorted. This behavior is seen in the data as the 100% sorted array was best on the string dataset and was second best on the integer dataset. 
+### Introsort
+For <b>Introsort</b>, when the array is large, <b>Heap Sort</b> is called every time. When <b>Heap Sort</b> is called, the best case is when the array is 100% sorted. This behavior is seen in the data as the 100% sorted array was best on the string dataset and was second best on the integer dataset. 
+For both the intger and the string arrays, the unsorted array was the worst case, which is reasonable since <b>Heap Sort</b> will reach it's worst case when an array is not sorted. So, the results seen are what we expected.
 
-For both the intger and the string arrays, the unsorted array was the worst case which is reasonable since heap sort will reach it's worst case when an array is not sorted. So, the results seen are what we expected.
+### Timsort
+<b>Timsort</b> had results where the 60% sorted and 100% sorted arrays were very close in terms of sorting speed, while the unsorted array was significantly slower than the sorted arrays. This behavior makes sense since <b>Insertion Sort</b> is the major algorithm used to sort subarrays. The best case for <b>Insertion Sort</b> occurs when the array is sorted, so it is reasonable that the algorithm performs worse on unsorted arrays.
 
-### Tim Sort
-Tim Sort had results where the 60% sorted and 100% sorted arrays were very close in terms of sorting speed, while the unsorted array was significantly slower than the sorted arrays. 
-
-This behavior makes sense since insertion sort is the major algorithm used to sort subarrays. The best case for insertion sort si when the array is sorted, so it is reasonable that the algorithm performs worse on unsorted arrays.
-
-## Analysis - Relating Our Results To The Published Big O Upper Bounds
-For this section, we will mostly be using the data at [Results - Dataset Size Vs. Time To Sort](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/README.md#results---dataset-size-vs-time-to-sort) to find if our data is consistent with the upper bounds.
+## Analysis: Relating Our Results To The Published Big O Upper Bounds
+For this section, we will mostly be using the data in [Results - Dataset Size Vs. Time To Sort](https://github.com/smu-cs-3353/22s-pa02-amogus/blob/main/README.md#results---dataset-size-vs-time-to-sort) to find if our collected data is consistent with the upper bounds.
 
 ### Insertion Sort
-Insertion sort has a worst case of O(n^2) and in the data, we can see it has a very n^2 shape. Also, compared to other algorithms, as the dataset gets really large, this dataset performs terribly. So, we can conclude that the worst case for insertion sort matches what our data shows.
+<b>Insertion Sort</b> has a worst case of O(n^2) and, in the data, we can see it has a very n^2 graphical output. This algorithm becomes much slower the larger the dataset becomes, and it performs most optimally when the array is already sorted, so we can conclude that the worst case for <b>Insertion Sort</b> matches what our data shows. 
 
 ### Randomized Quicksort
-Randomized quicksort has a worst case of O(n^2), just like insertion sort. When examining the data, we find that quicksort performed much worse than most algorithms, but much better than insertion sort. Since insertion sort is expected to run slower than quicksort on large arrays (meaning it has a higher constant in front of the n^2), the published results match our results.
+<b>Randomized Quicksort</b> has a worst case of O(n^2), just like <b>Insertion Sort</b>. When examining the data, we find that this algorithm performed much worse than most algorithms, but much better than <b>Insertion Sort</b>. Since <b>Insertion Sort</b> is expected to run slower than <b>Randomized Quicksort</b> on large arrays (meaning it has a higher constant in front of the n^2), the published results match our results.
 
 ### Merge Sort
-Merge sort has a published worst case of O(n\*logn). This means that merge sort should perform better than both insertion sort and quicksort since insertion sort and quicksort are O(n^2) while merge sort is O(n\*logn). Examining the data, we find these results which means that our results match the published results.
+<b>Merge Sort</b> has a published worst case of O(n\*logn). This means that merge sort should perform better than both the two previous algorithms since they are both O(n^2), while <b>Merge Sort</b> is O(n\*logn). Examining the data, we find these results, which means that our results match the published results.
 
-### Shell Sort
-Shell sort has a worst case of O(n^2). Unfortunately, we did not generate the worst case dataset for this algorithm, so instead we will analyze the average case which is O(n\*logn). Since the average case of Shell Sort is O(n\*logn), this algorithm should be faster than Insertion sort and Randomized Quicksort. Also, it should be either faster than Merge sort or around the same as Merger sort. When analyzing the data, we find that this algorithm is faster than Merge sort which gives us similar results to the published results.
+### Shellsort
+<b>Shellsort</b> has a worst case of O(n^2). Unfortunately, we did not generate the worst case dataset for this algorithm, so instead we will analyze the average case which is O(n\*logn). Since the average case of <b>Shellsort</b> is O(n\*logn), this algorithm should be faster than <b>Insertion Sort</b> and <b>Randomized Quicksort</b>. Also, it should be either faster or around the same as <b>Merge Sort</b>. When analyzing the data, we find that this algorithm is faster than <b>Merge Sort</b>, which gives us similar results to the published results.
 
-### Intro Sort
-Intro Sort has a worst case of O(n\*logn), so this algorithm should have a speed similar to Shell sort. Looking at the data, we find that it is very similar to Shell sort which means it has similar results to the published results.
+### Introsort
+<b>Introsort</b> has a worst case of O(n\*logn), so this algorithm should have a speed similar to <b>Shellsort</b>. Looking at the data, we find just that, which implies that it has similar results to the published results.
 
-### Tim Sort
-Like with Intro Sort, it has a worst case of O(n\*logn), so this algorithm should have a similar speed to Shell sort and Intro sort. We find this is the case meaning this algorithm also matches the published results.
+### Timsort
+Like with b>Introsort</b>, <b>Timsort</b> has a worst case of O(n\*logn), so this algorithm should have a similar speed to the two previois algorithms. We find this to be the case, meaning this algorithm also matches the published results.
